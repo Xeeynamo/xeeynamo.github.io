@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { octokit } from '../services/Octokit'
 
 export interface Props {
     userName: string
@@ -11,14 +11,6 @@ interface State {
     imageUrl: string;
     homeUrl: string;
     fullName: string;
-}
-
-interface GithubUser {
-    login: string;
-    id: number;
-    avatar_url: string;
-    html_url: string;
-    name: string;
 }
 
 class Profile extends Component<Props, State> {
@@ -36,7 +28,10 @@ class Profile extends Component<Props, State> {
     }
 
     async fetchUser(userName: string) {
-        const response = await axios.get<GithubUser>(`https://api.github.com/users/${userName}`);
+        const response = await octokit.users.getByUsername({
+            username: userName
+        })
+
         this.setState({
             name: response.data.login,
             id: response.data.id,
