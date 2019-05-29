@@ -2,11 +2,12 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import MasterProfile from './components/MasterProfile';
+import config from './config.json'
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <MasterProfile userName="xeeynamo"/>
+      <MasterProfile userName={config.userName}/>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
