@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Repository } from './Repository';
 import { octokit } from '../services/Octokit'
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
 
 interface Props {
     userName: string
@@ -27,9 +29,13 @@ export class RepositoryList extends Component<Props, State> {
         });
 
         let repositories = response.data.map(function (x: any) {
-            return (<Repository
-                name={x.name}
-                />)
+            return (
+                <GridListTile key={x.name} cols={1 || 1}>
+                    <Repository
+                        name={x.name}
+                    />
+                </GridListTile>
+            )
         });
 
         this.setState({
@@ -40,7 +46,9 @@ export class RepositoryList extends Component<Props, State> {
     render() {
         return (
             <div>
-                { this.state.repositories }
+                <GridList cellHeight={160} cols={3}>
+                    { this.state.repositories }
+                </GridList>
             </div>
         );
     }
