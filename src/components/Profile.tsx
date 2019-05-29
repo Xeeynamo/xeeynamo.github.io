@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { octokit } from '../services/Octokit'
 
-export interface Props {
+interface Props {
     userName: string
 }
 
@@ -13,7 +13,7 @@ interface State {
     fullName: string;
 }
 
-class Profile extends Component<Props, State> {
+export class Profile extends Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {
@@ -55,5 +55,3 @@ class Profile extends Component<Props, State> {
         );
     }
 }
-
-export default Profile;

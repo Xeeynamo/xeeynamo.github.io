@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import Profile from './Profile';
+import { Profile } from './Profile';
 import { RepositoryList } from './RepositoryList';
 
-export interface Props {
+interface Props {
     userName: string
 }
 
-export interface State {
+interface State {
 
 }
 
-class MasterProfile extends Component<Props, State> {
+export class MasterProfile extends Component<Props, State> {
     constructor(props: Props) {
         super(props);
     }
@@ -24,5 +24,3 @@ class MasterProfile extends Component<Props, State> {
         );
     }
 }
-
-export default MasterProfile;

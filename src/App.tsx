@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import MasterProfile from './components/MasterProfile';
+import { MasterProfile } from './components/MasterProfile';
 import config from './config.json'
 
 const App: React.FC = () => {

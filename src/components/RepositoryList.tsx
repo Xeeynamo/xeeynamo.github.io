@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Repository } from './Repository';
 import { octokit } from '../services/Octokit'
 
-export interface Props {
+interface Props {
     userName: string
 }
 

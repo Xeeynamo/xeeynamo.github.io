@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-export interface Props {
+interface Props {
     name: string
 }
 
-export interface State {
+interface State {
 
 }
 
