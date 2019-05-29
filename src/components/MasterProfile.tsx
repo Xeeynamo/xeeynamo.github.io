@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Profile from './Profile';
+import { RepositoryList } from './RepositoryList';
 
 export interface Props {
     userName: string
@@ -18,6 +19,7 @@ class MasterProfile extends Component<Props, State> {
         return (
             <div>
                 <Profile userName={ this.props.userName }/>
+                <RepositoryList userName={ this.props.userName }/>
             </div>
         );
     }
