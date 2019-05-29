@@ -9,6 +9,7 @@ interface Props {
 }
 
 interface State {
+    repositoryCount: number;
     repositories: JSX.Element[] | undefined;
 }
 
@@ -17,6 +18,7 @@ export class RepositoryList extends Component<Props, State> {
         super(props);
 
         this.state = {
+            repositoryCount: 0,
             repositories: undefined
         };
 
@@ -39,6 +41,7 @@ export class RepositoryList extends Component<Props, State> {
         });
 
         this.setState({
+            repositoryCount: response.data.length,
             repositories: repositories
         });
     }
@@ -46,6 +49,9 @@ export class RepositoryList extends Component<Props, State> {
     render() {
         return (
             <div>
+                <div>
+                    Repository count: { this.state.repositoryCount }
+                </div>
                 <GridList cellHeight={160} cols={3}>
                     { this.state.repositories }
                 </GridList>
