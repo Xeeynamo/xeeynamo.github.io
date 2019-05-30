@@ -6,6 +6,7 @@ import GridListTile from '@material-ui/core/GridListTile';
 import FormControl from '@material-ui/core/FormControl';
 import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import config from '../config.json'
 
 interface Props {
     userName: string
@@ -24,7 +25,7 @@ export class RepositoryList extends Component<Props, State> {
         this.state = {
             repositoryCount: 0,
             repositories: undefined,
-            includeForks: false
+            includeForks: config.includeForks
         };
 
         this.handleIncludeForkChange = this.handleIncludeForkChange.bind(this);
