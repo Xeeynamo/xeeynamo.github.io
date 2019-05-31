@@ -190,11 +190,11 @@ export class RepositoryList extends Component<Props, State> {
 
     renderOptions() {
         return (
-            <FormControl>
+            <div>
                 {this.renderIncludeSwitch()}
                 {this.renderSortMethod()}
                 {this.renderOrderMethod()}
-            </FormControl>
+            </div>
         );
     }
 
