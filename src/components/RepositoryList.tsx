@@ -144,6 +144,16 @@ export class RepositoryList extends Component<Props, State> {
                 <GridListTile key={x.name} cols={1 || 1}>
                     <Repository
                         name={x.name}
+                        description={x.description}
+                        repoUrl={x.html_url}
+                        homepage={x.homepage}
+                        createdAt={x.created_at}
+                        pushedAt={x.pushed_at}
+                        updatedAt={x.updated_at}
+                        forksCount={x.forks_count}
+                        watchersCount={x.watchers_count}
+                        language={x.language}
+                        license={x.license}
                     />
                 </GridListTile>
             )
