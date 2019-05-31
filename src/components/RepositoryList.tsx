@@ -7,6 +7,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import config from '../config.json'
+import { Select, MenuItem } from '@material-ui/core';
 
 interface Props {
     userName: string
@@ -16,7 +17,7 @@ interface State {
     repositoryCount: number;
     repositories: any;
     includeForks: boolean;
-    compareOption: string;
+    sortOption: string;
     orderOption: string;
 }
 
@@ -28,11 +29,13 @@ export class RepositoryList extends Component<Props, State> {
             repositoryCount: 0,
             repositories: undefined,
             includeForks: config.includeForks,
-            compareOption: config.compareOption,
+            sortOption: config.sortOption,
             orderOption: config.orderOption
         };
 
         this.handleIncludeForkChange = this.handleIncludeForkChange.bind(this);
+        this.handleSortOptionChange = this.handleSortOptionChange.bind(this);
+        this.handleOrderOptionChange = this.handleOrderOptionChange.bind(this);
         this.fetchRepositories(this.props.userName);
     }
 
@@ -47,10 +50,21 @@ export class RepositoryList extends Component<Props, State> {
         });
     }
 
-    handleIncludeForkChange(
-        event: ChangeEvent<HTMLInputElement>, checked: boolean) {
+    handleIncludeForkChange(event: ChangeEvent<HTMLInputElement>, checked: boolean) {
         this.setState({
             includeForks: checked
+        });
+    }
+
+    handleSortOptionChange(event: ChangeEvent<{ name?: string; value: unknown }>) {
+        this.setState({
+            sortOption: event.target.value as string
+        });
+    }
+
+    handleOrderOptionChange(event: ChangeEvent<{ name?: string; value: unknown }>) {
+        this.setState({
+            orderOption: event.target.value as string
         });
     }
 
@@ -61,14 +75,13 @@ export class RepositoryList extends Component<Props, State> {
     }
 
     private getSortRepositories(): any {
-        switch (this.state.compareOption)
-        {
+        switch (this.state.sortOption) {
             case "last-update":
-                return function (a: any, b: any) : number {
+                return function (a: any, b: any): number {
                     return a.updated_at >= b.updated_at ? 1 : -1;
                 };
             case "last-push":
-                return function (a: any, b: any) : number {
+                return function (a: any, b: any): number {
                     return a.pushed_at >= b.pushed_at ? 1 : -1;
                 };
             default:
@@ -80,8 +93,7 @@ export class RepositoryList extends Component<Props, State> {
 
     private getSortAscDescRepositories(): any {
         var orderBy = 1;
-        switch (this.state.orderOption)
-        {
+        switch (this.state.orderOption) {
             case "asc":
                 orderBy = 1;
                 break;
@@ -130,23 +142,56 @@ export class RepositoryList extends Component<Props, State> {
         return (
             <FormControlLabel control={
                 <Switch
-                    checked={ this.state.includeForks }
-                    onChange={ this.handleIncludeForkChange } />
+                    checked={this.state.includeForks}
+                    onChange={this.handleIncludeForkChange} />
             } label="Forks" />
+        );
+    }
+
+    renderSortMethod() {
+        return (
+            <Select
+                value={this.state.sortOption}
+                onChange={this.handleSortOptionChange}
+                displayEmpty>
+                <MenuItem value={"default"}>Default</MenuItem>
+                <MenuItem value={"last-update"}>Last update</MenuItem>
+                <MenuItem value={"last-push"}>Last push</MenuItem>
+            </Select>
+        );
+    }
+
+    renderOrderMethod() {
+        return (
+            <Select
+                value={this.state.orderOption}
+                onChange={this.handleOrderOptionChange}
+                displayEmpty>
+                <MenuItem value={"asc"}>Ascend</MenuItem>
+                <MenuItem value={"desc"}>Descend</MenuItem>
+            </Select>
+        );
+    }
+
+    renderOptions() {
+        return (
+            <FormControl>
+                {this.renderIncludeSwitch()}
+                {this.renderSortMethod()}
+                {this.renderOrderMethod()}
+            </FormControl>
         );
     }
 
     render() {
         return (
             <div>
-                <FormControl>
-                    { this.renderIncludeSwitch() }
-                </FormControl>
+                {this.renderOptions()}
                 <div>
-                    Repository count: { this.getRepositoryCount() }
+                    Repository count: {this.getRepositoryCount()}
                 </div>
                 <GridList cellHeight={160} cols={3}>
-                    { this.renderRepositories() }
+                    {this.renderRepositories()}
                 </GridList>
             </div>
         );

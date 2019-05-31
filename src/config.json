@@ -1,6 +1,6 @@
 {
     "userName": "xeeynamo",
     "includeForks": false,
-    "compareOption": "last-push",
+    "sortOption": "last-push",
     "orderOption": "desc"
 }
