@@ -10,5 +10,5 @@ The configuration is located into `src/config.json` and can be customized in the
 |--------------|-------------
 | userName     | The user name where the information will be fetched
 | includeForks | If the fork repositories should be visible by default
-| sortOption   | Sorting behavior. Valid values are `default`, `last-update`, `last-push`
+| sortOption   | Sorting behavior. Valid values are `default`, `last-update`, `last-push`, `creation-date`, `forks-count`, `watchers-count`
 | orderOption  | Order behavior. Valid values are `asc` or `desc`

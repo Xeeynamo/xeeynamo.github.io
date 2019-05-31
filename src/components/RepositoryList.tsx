@@ -76,6 +76,10 @@ export class RepositoryList extends Component<Props, State> {
 
     private getSortRepositories(): any {
         switch (this.state.sortOption) {
+            case "creation-date":
+                return function (a: any, b: any): number {
+                    return a.created_at >= b.created_at ? 1 : -1;
+                };
             case "last-update":
                 return function (a: any, b: any): number {
                     return a.updated_at >= b.updated_at ? 1 : -1;
@@ -83,6 +87,14 @@ export class RepositoryList extends Component<Props, State> {
             case "last-push":
                 return function (a: any, b: any): number {
                     return a.pushed_at >= b.pushed_at ? 1 : -1;
+                };
+            case "forks-count":
+                return function (a: any, b: any): number {
+                    return a.forks_count >= b.forks_count ? 1 : -1;
+                };
+            case "watchers-count":
+                return function (a: any, b: any): number {
+                    return a.watchers_count >= b.watchers_count ? 1 : -1;
                 };
             default:
                 return function (a: any, b: any): number {
@@ -157,6 +169,9 @@ export class RepositoryList extends Component<Props, State> {
                 <MenuItem value={"default"}>Default</MenuItem>
                 <MenuItem value={"last-update"}>Last update</MenuItem>
                 <MenuItem value={"last-push"}>Last push</MenuItem>
+                <MenuItem value={"creation-date"}>Creation date</MenuItem>
+                <MenuItem value={"forks-count"}>Forks count</MenuItem>
+                <MenuItem value={"watchers-count"}>Watchers count</MenuItem>
             </Select>
         );
     }
