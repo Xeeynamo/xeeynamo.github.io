@@ -16,6 +16,8 @@ interface State {
     repositoryCount: number;
     repositories: any;
     includeForks: boolean;
+    compareOption: string;
+    orderOption: string;
 }
 
 export class RepositoryList extends Component<Props, State> {
@@ -25,7 +27,9 @@ export class RepositoryList extends Component<Props, State> {
         this.state = {
             repositoryCount: 0,
             repositories: undefined,
-            includeForks: config.includeForks
+            includeForks: config.includeForks,
+            compareOption: config.compareOption,
+            orderOption: config.orderOption
         };
 
         this.handleIncludeForkChange = this.handleIncludeForkChange.bind(this);
@@ -50,15 +54,57 @@ export class RepositoryList extends Component<Props, State> {
         });
     }
 
+    private getFilterRepositories(includeForks: boolean): any {
+        return function (x: any) {
+            return includeForks || !x.fork;
+        };
+    }
+
+    private getSortRepositories(): any {
+        switch (this.state.compareOption)
+        {
+            case "last-update":
+                return function (a: any, b: any) : number {
+                    return a.updated_at >= b.updated_at ? 1 : -1;
+                };
+            case "last-push":
+                return function (a: any, b: any) : number {
+                    return a.pushed_at >= b.pushed_at ? 1 : -1;
+                };
+            default:
+                return function (a: any, b: any): number {
+                    return 1;
+                };
+        }
+    }
+
+    private getSortAscDescRepositories(): any {
+        var orderBy = 1;
+        switch (this.state.orderOption)
+        {
+            case "asc":
+                orderBy = 1;
+                break;
+            case "desc":
+                orderBy = -1;
+                break;
+        }
+
+        let sortFunction = this.getSortRepositories();
+        return function (a: any, b: any) {
+            return sortFunction(a, b) * orderBy;
+        };
+    }
+
     getRepositories() {
         if (this.state.repositories == undefined)
             return [];
 
         let includeForks = this.state.includeForks;
 
-        return this.state.repositories.filter(function(x : any) {
-            return includeForks || !x.fork;
-        });
+        return this.state.repositories
+            .filter(this.getFilterRepositories(includeForks))
+            .sort(this.getSortAscDescRepositories());
     }
 
     getRepositoryCount() {
