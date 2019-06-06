@@ -3,7 +3,6 @@ import { Repository } from './Repository';
 import { octokit } from '../services/Octokit'
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
-import FormControl from '@material-ui/core/FormControl';
 import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import config from '../config.json'
