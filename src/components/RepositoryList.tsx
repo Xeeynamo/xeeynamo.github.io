@@ -153,6 +153,7 @@ export class RepositoryList extends Component<Props, State> {
                         watchersCount={x.watchers_count}
                         language={x.language}
                         license={x.license}
+                        defaultBranch={x.defaultBranch}
                     />
                 </GridListTile>
             )
