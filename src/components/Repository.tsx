@@ -44,6 +44,7 @@ export class Repository extends Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.onSourceClick = this.onSourceClick.bind(this);
+        this.onCardClick = this.onCardClick.bind(this);
     }
 
     private style = {
@@ -52,6 +53,10 @@ export class Repository extends Component<Props, State> {
 
     onSourceClick(event: React.MouseEvent<HTMLButtonElement>) {
         window.open(this.props.repoUrl, "_blank");
+    }
+
+    onCardClick(event: React.MouseEvent<HTMLButtonElement>) {
+        window.open(this.getHomePage(), "_blank");
     }
 
     getLastUpdate() {
@@ -111,9 +116,6 @@ export class Repository extends Component<Props, State> {
                 <CardActions>
                     <Button size="small" color="primary" onClick={this.onSourceClick}>
                         Source
-                    </Button>
-                    <Button size="small" color="primary">
-                        Share
                     </Button>
                 </CardActions>
             </Card>
