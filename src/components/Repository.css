@@ -1,3 +1,13 @@
 .repository-name {
     font-weight: bold
-}
+};
+
+.repository-card {
+    max-width: 345;
+    background-color: black;
+};
+
+.repository-media {
+    min-height: 140px;
+    max-height: 140px;
+};

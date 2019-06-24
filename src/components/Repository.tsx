@@ -2,6 +2,24 @@ import React, { Component } from 'react';
 import Icon from '@material-ui/core/Icon';
 import './Repository.css';
 
+import { createStyles, makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+
+
+const useStyles = makeStyles(
+    createStyles({
+        media: {
+            height: 140,
+        },
+    }),
+);
+
 interface Props {
     name: string
     description: string
@@ -22,6 +40,19 @@ interface State {
 }
 
 export class Repository extends Component<Props, State> {
+    constructor(props: Props) {
+        super(props);
+        this.onSourceClick = this.onSourceClick.bind(this);
+    }
+
+    private style = {
+        height: '140px'
+    };
+
+    onSourceClick(event: React.MouseEvent<HTMLButtonElement>) {
+        window.open(this.props.repoUrl, "_blank");
+    }
+
     getLastUpdate() {
         return this.props.updatedAt > this.props.pushedAt ?
             this.props.updatedAt : this.props.pushedAt;
@@ -34,7 +65,7 @@ export class Repository extends Component<Props, State> {
         return this.props.repoUrl;
     }
 
-    render() {
+    renderContent() {
         return (
             <div>
                 <a className="repository-name" href={this.getHomePage()} target="_blank" rel="noopener noreferrer">
@@ -43,7 +74,7 @@ export class Repository extends Component<Props, State> {
                 <div>
                     {this.props.description}
                 </div>
-                <br/>
+                <br />
                 <div>
                     <span><Icon>star_border</Icon> {this.props.watchersCount}</span>
                     <span> | </span>
@@ -54,6 +85,37 @@ export class Repository extends Component<Props, State> {
                     <Icon>access_time</Icon> {this.getLastUpdate()}
                 </div>
             </div>
+        );
+    }
+
+    render() {
+        return (
+            <Card>
+                <CardActionArea>
+                    <CardMedia
+                        className="repository-media"
+                        style={this.style}
+                        image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
+                        title="Contemplative Reptile"
+                    />
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                            {this.props.name}
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                            {this.props.description}
+                        </Typography>
+                    </CardContent>
+                </CardActionArea>
+                <CardActions>
+                    <Button size="small" color="primary" onClick={this.onSourceClick}>
+                        Source
+                    </Button>
+                    <Button size="small" color="primary">
+                        Share
+                    </Button>
+                </CardActions>
+            </Card>
         );
     }
 }
