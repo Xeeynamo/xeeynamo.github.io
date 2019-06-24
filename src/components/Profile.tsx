@@ -45,7 +45,7 @@ export class Profile extends Component<Props, State> {
         return (
             <div>
                 <div>
-                    <img src={this.state.imageUrl} width={100} />
+                    <img src={this.state.imageUrl} width={100} alt="logo" />
                 </div>
                 <div>
                     <a href={this.state.homeUrl}>{this.state.name}</a>

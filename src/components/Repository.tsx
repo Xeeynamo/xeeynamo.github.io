@@ -22,10 +22,6 @@ interface State {
 }
 
 export class Repository extends Component<Props, State> {
-    constructor(props: Props) {
-        super(props);
-    }
-
     getLastUpdate() {
         return this.props.updatedAt > this.props.pushedAt ?
             this.props.updatedAt : this.props.pushedAt;
@@ -41,7 +37,7 @@ export class Repository extends Component<Props, State> {
     render() {
         return (
             <div>
-                <a className="repository-name" href={this.getHomePage()} target="_blank">
+                <a className="repository-name" href={this.getHomePage()} target="_blank" rel="noopener noreferrer">
                     {this.props.name}
                 </a>
                 <div>

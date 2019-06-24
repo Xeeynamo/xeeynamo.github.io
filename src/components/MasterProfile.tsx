@@ -11,10 +11,6 @@ interface State {
 }
 
 export class MasterProfile extends Component<Props, State> {
-    constructor(props: Props) {
-        super(props);
-    }
-
     render() {
         return (
             <div>
