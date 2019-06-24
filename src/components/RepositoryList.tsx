@@ -7,6 +7,7 @@ import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import config from '../config.json'
 import { Select, MenuItem } from '@material-ui/core';
+import './RepositoryList.css'
 
 interface Props {
     userName: string
@@ -200,7 +201,7 @@ export class RepositoryList extends Component<Props, State> {
 
     renderOptions() {
         return (
-            <div>
+            <div className="repository-filter">
                 {this.renderIncludeSwitch()}
                 {this.renderSortMethod()}
                 {this.renderOrderMethod()}
@@ -212,10 +213,10 @@ export class RepositoryList extends Component<Props, State> {
         return (
             <div>
                 {this.renderOptions()}
-                <div>
+                <div className="repository-filter">
                     Repository count: {this.getRepositoryCount()}
                 </div>
-                <GridList cellHeight={160} cols={3}>
+                <GridList cellHeight={320} cols={3}>
                     {this.renderRepositories()}
                 </GridList>
             </div>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { octokit } from '../services/Octokit'
+import './Profile.css'
 
 interface Props {
     userName: string
@@ -43,7 +44,7 @@ export class Profile extends Component<Props, State> {
 
     render() {
         return (
-            <div>
+            <div className="profile">
                 <div>
                     <img src={this.state.imageUrl} width={100} alt="logo" />
                 </div>
