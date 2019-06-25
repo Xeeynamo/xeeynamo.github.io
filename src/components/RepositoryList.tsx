@@ -1,12 +1,12 @@
 import React, { Component, ChangeEvent } from 'react';
 import { Repository } from './Repository';
 import { octokit } from '../services/Octokit'
+import { Select, MenuItem,  Hidden } from '@material-ui/core';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import config from '../config.json'
-import { Select, MenuItem } from '@material-ui/core';
 import './RepositoryList.css'
 
 interface Props {
@@ -210,15 +210,33 @@ export class RepositoryList extends Component<Props, State> {
     }
 
     render() {
+        const spacing = 12;
         return (
             <div>
                 {this.renderOptions()}
                 <div className="repository-filter">
                     Repository count: {this.getRepositoryCount()}
                 </div>
-                <GridList cellHeight={320} cols={3}>
-                    {this.renderRepositories()}
-                </GridList>
+                <Hidden smUp>
+                    <GridList cellHeight="auto" cols={1}>
+                        {this.renderRepositories()}
+                    </GridList>
+                </Hidden>
+                <Hidden xsDown mdUp>
+                    <GridList cellHeight="auto" cols={2} spacing={spacing}>
+                        {this.renderRepositories()}
+                    </GridList>
+                </Hidden>
+                <Hidden smDown lgUp>
+                    <GridList cellHeight="auto" cols={3} spacing={spacing}>
+                        {this.renderRepositories()}
+                    </GridList>
+                </Hidden>
+                <Hidden mdDown>
+                    <GridList cellHeight="auto" cols={4} spacing={spacing}>
+                        {this.renderRepositories()}
+                    </GridList>
+                </Hidden>
             </div>
         );
     }
