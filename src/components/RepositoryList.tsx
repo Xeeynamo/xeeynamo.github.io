@@ -8,6 +8,7 @@ import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import config from '../config.json'
 import './RepositoryList.css'
+import repositories from '../repositories.json'
 
 interface Props {
     userName: string
@@ -135,16 +136,31 @@ export class RepositoryList extends Component<Props, State> {
         return this.getRepositories().length;
     }
 
+    getRepositoryConfig(name: string) {
+        return repositories.find(function(x: any) {
+            return x.name.toUpperCase() === name.toUpperCase()
+        });
+    }
+
+    getRepositoryImage(config: any) {
+        if (config == null || config.image == null)
+            return "";
+        return config.image;
+    }
+
     renderRepositories(height: number) {
         if (this.state.repositories === undefined)
             return null;
 
-        return this.getRepositories().map(function (x: any) {
+        return this.getRepositories().map((x: any) => {
+            const repository = this.getRepositoryConfig(x.name);
+
             return (
                 <GridListTile key={x.name} cols={1}>
                     <Repository
                         height={height}
                         name={x.name}
+                        image={this.getRepositoryImage(repository)}
                         description={x.description}
                         repoUrl={x.html_url}
                         homepage={x.homepage}

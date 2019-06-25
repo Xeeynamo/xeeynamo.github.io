@@ -23,6 +23,7 @@ const useStyles = makeStyles(
 interface Props {
     height: number
     name: string
+    image: string
     description: string
     repoUrl: string
     homepage: string
@@ -101,7 +102,7 @@ export class Repository extends Component<Props, State> {
                     <CardMedia
                         className="repository-media"
                         style={this.style}
-                        image="https://file.qiitadon.com/media_attachments/files/001/158/388/original/674c903ebb6b2755.png"
+                        image={this.props.image}
                         title="Contemplative Reptile"
                     />
                     <CardContent>
