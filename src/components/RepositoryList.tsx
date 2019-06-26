@@ -135,14 +135,15 @@ export class RepositoryList extends Component<Props, State> {
         return this.getRepositories().length;
     }
 
-    renderRepositories() {
+    renderRepositories(height: number) {
         if (this.state.repositories === undefined)
             return null;
 
         return this.getRepositories().map(function (x: any) {
             return (
-                <GridListTile key={x.name} cols={1 || 1}>
+                <GridListTile key={x.name} cols={1}>
                     <Repository
+                        height={height}
                         name={x.name}
                         description={x.description}
                         repoUrl={x.html_url}
@@ -219,22 +220,27 @@ export class RepositoryList extends Component<Props, State> {
                 </div>
                 <Hidden smUp>
                     <GridList cellHeight="auto" cols={1}>
-                        {this.renderRepositories()}
+                        {this.renderRepositories(275)}
                     </GridList>
                 </Hidden>
                 <Hidden xsDown mdUp>
-                    <GridList cellHeight="auto" cols={2} spacing={spacing}>
-                        {this.renderRepositories()}
+                    <GridList cellHeight="auto" cols={1} spacing={spacing}>
+                        {this.renderRepositories(350)}
                     </GridList>
                 </Hidden>
                 <Hidden smDown lgUp>
-                    <GridList cellHeight="auto" cols={3} spacing={spacing}>
-                        {this.renderRepositories()}
+                    <GridList cellHeight="auto" cols={2} spacing={spacing}>
+                        {this.renderRepositories(255)}
                     </GridList>
                 </Hidden>
-                <Hidden mdDown>
-                    <GridList cellHeight="auto" cols={4} spacing={spacing}>
-                        {this.renderRepositories()}
+                <Hidden mdDown xlUp>
+                    <GridList cellHeight="auto" cols={2} spacing={spacing}>
+                        {this.renderRepositories(360)}
+                    </GridList>
+                </Hidden>
+                <Hidden lgDown>
+                    <GridList cellHeight="auto" cols={3} spacing={spacing}>
+                        {this.renderRepositories(350)}
                     </GridList>
                 </Hidden>
             </div>

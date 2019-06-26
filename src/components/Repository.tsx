@@ -21,6 +21,7 @@ const useStyles = makeStyles(
 );
 
 interface Props {
+    height: number
     name: string
     description: string
     repoUrl: string
@@ -46,7 +47,7 @@ export class Repository extends Component<Props, State> {
     }
 
     private style = {
-        height: '140px'
+        height: `${this.props.height}px`,
     };
 
     onSourceClick(event: React.MouseEvent<HTMLButtonElement>) {
@@ -95,7 +96,7 @@ export class Repository extends Component<Props, State> {
                     <CardMedia
                         className="repository-media"
                         style={this.style}
-                        image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
+                        image="https://file.qiitadon.com/media_attachments/files/001/158/388/original/674c903ebb6b2755.png"
                         title="Contemplative Reptile"
                     />
                     <CardContent>
