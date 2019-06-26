@@ -42,7 +42,8 @@ export class RepositoryList extends Component<Props, State> {
 
     async fetchRepositories(userName: string) {
         const response = await octokit.repos.listForUser({
-            username: userName
+            username: userName,
+            per_page: 100
         });
 
         this.setState({
