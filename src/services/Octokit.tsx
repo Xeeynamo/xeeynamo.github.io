@@ -2,7 +2,7 @@ import Octokit from '@octokit/rest'
 
 export let octokit = new Octokit({
     userAgent: 'xeeynamo v1.0',
-    baseUrl: 'https://api.github.com',
+    baseUrl: 'https://d2he3ux5gwrwae.cloudfront.net',
     log: {
       debug: () => {},
       info: () => {},
