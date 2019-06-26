@@ -236,7 +236,7 @@ export class RepositoryList extends Component<Props, State> {
                 </div>
                 <Hidden smUp>
                     <GridList cellHeight="auto" cols={1}>
-                        {this.renderRepositories(275)}
+                        {this.renderRepositories(218)}
                     </GridList>
                 </Hidden>
                 <Hidden xsDown mdUp>
