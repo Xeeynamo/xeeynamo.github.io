@@ -145,7 +145,7 @@ export class RepositoryList extends Component<Props, State> {
 
     getRepositoryImage(config: any) {
         if (config == null || config.image == null)
-            return "https://file.qiitadon.com/media_attachments/files/001/158/388/original/674c903ebb6b2755.png";
+            return "/image/repo/default.png";
         return config.image;
     }
 
