@@ -6,7 +6,7 @@ import { isDebugMode } from './services/Utilities';
 import config from './config.json'
 
 const App: React.FC = () => {
-  ReactGA.initialize('UA-000000-01', {
+  ReactGA.initialize(config.gaTracking, {
     debug: isDebugMode()
   });
   ReactGA.pageview(window.location.pathname + window.location.search);
