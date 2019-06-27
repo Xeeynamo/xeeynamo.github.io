@@ -1,14 +1,21 @@
 import React from 'react';
+import ReactGA from 'react-ga';
 import './App.css';
 import { MasterProfile } from './components/MasterProfile';
+import { isDebugMode } from './services/Utilities';
 import config from './config.json'
 
 const App: React.FC = () => {
+  ReactGA.initialize('UA-000000-01', {
+    debug: isDebugMode()
+  });
+  ReactGA.pageview(window.location.pathname + window.location.search);
+
   return (
     <div className="App">
       <header className="App-header">
         <p>
-          Work in progress
+          {isDebugMode() ? "Debug mode" : "Work in progress"}
         </p>
       </header>
       <MasterProfile userName={config.userName}/>
