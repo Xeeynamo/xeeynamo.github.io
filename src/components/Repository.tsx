@@ -10,6 +10,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { openLink, gaSourceClick, gaHomepageClick, gaBehaviourClickButton, gaBehaviourClickCard } from '../services/Utilities';
 
 
 const useStyles = makeStyles(
@@ -44,7 +45,7 @@ interface State {
 export class Repository extends Component<Props, State> {
     constructor(props: Props) {
         super(props);
-        this.onSourceClick = this.onSourceClick.bind(this);
+        this.onSourceButtonClick = this.onSourceButtonClick.bind(this);
         this.onCardClick = this.onCardClick.bind(this);
     }
 
@@ -52,27 +53,48 @@ export class Repository extends Component<Props, State> {
         height: `${this.props.height}px`,
     };
 
-    onSourceClick(event: React.MouseEvent<HTMLButtonElement>) {
-        window.open(this.props.repoUrl, "_blank");
+    private gotoHomepage() {
+        gaHomepageClick(this.props.name);
+        openLink(this.props.repoUrl);
     }
 
-    onCardClick(event: React.MouseEvent<HTMLButtonElement>) {
-        window.open(this.getHomePage(), "_blank");
+    private gotoSource() {
+        gaSourceClick(this.props.name);
+        openLink(this.props.repoUrl);
     }
 
-    getLastUpdate() {
+    private onSourceButtonClick(event: React.MouseEvent<HTMLButtonElement>) {
+        gaBehaviourClickButton(this.props.name);
+        this.gotoSource();
+    }
+
+    private onHomepageButtonClick(event: React.MouseEvent<HTMLButtonElement>) {
+        gaBehaviourClickButton(this.props.name);
+        this.gotoHomepage();
+    }
+
+    private onCardClick(event: React.MouseEvent<HTMLButtonElement>) {
+        gaBehaviourClickCard(this.props.name);
+        if (this.hasHomePage())
+            this.gotoHomepage();
+        else
+            this.gotoSource();
+    }
+
+    private hasHomePage() {
+        return this.props.homepage != null && this.props.homepage.length > 0;
+    }
+
+    private getLastUpdate() {
         return this.props.updatedAt > this.props.pushedAt ?
             this.props.updatedAt : this.props.pushedAt;
     }
 
-    getHomePage() {
-        if (this.props.homepage != null && this.props.homepage.length > 0)
-            return this.props.homepage;
-
-        return this.props.repoUrl;
+    private getHomePage() {
+        return this.hasHomePage() ? this.props.homepage : this.props.repoUrl;
     }
 
-    renderContent() {
+    private renderContent() {
         return (
             <div>
                 <a className="repository-name" href={this.getHomePage()} target="_blank" rel="noopener noreferrer">
@@ -95,10 +117,21 @@ export class Repository extends Component<Props, State> {
         );
     }
 
+    private renderWebsiteButton() {
+        if (!this.hasHomePage())
+            return;
+
+        return (
+            <Button size="small" color="primary" onClick={this.onSourceButtonClick}>
+                Homepage
+            </Button>
+        );
+    }
+
     render() {
         return (
             <Card>
-                <CardActionArea>
+                <CardActionArea onClick={this.onCardClick}>
                     <CardMedia
                         className="repository-media"
                         style={this.style}
@@ -115,7 +148,8 @@ export class Repository extends Component<Props, State> {
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
-                    <Button size="small" color="primary" onClick={this.onSourceClick}>
+                    {this.renderWebsiteButton()}
+                    <Button size="small" color="primary" onClick={this.onSourceButtonClick}>
                         Source
                     </Button>
                 </CardActions>
