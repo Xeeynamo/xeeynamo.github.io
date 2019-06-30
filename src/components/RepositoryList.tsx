@@ -151,7 +151,7 @@ export class RepositoryList extends Component<Props, State> {
 
     renderRepositories(height: number) {
         if (this.state.repositories === undefined)
-            return null;
+            return (<div>Loading...</div>);
 
         return this.getRepositories().map((x: any) => {
             const repository = this.getRepositoryConfig(x.name);
