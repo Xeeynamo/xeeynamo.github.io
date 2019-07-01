@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactGA from 'react-ga';
 import { library } from '@fortawesome/fontawesome-svg-core'
+import { far } from '@fortawesome/free-regular-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
 import './App.css';
 import { MasterProfile } from './components/MasterProfile';
 import { isDebugMode } from './services/Utilities';
@@ -13,7 +15,9 @@ const App: React.FC = () => {
   });
   ReactGA.pageview(window.location.pathname + window.location.search);
 
+  library.add(far);
   library.add(fas);
+  library.add(fab);
 
   return (
     <div className="App">
