@@ -23,8 +23,6 @@
 .applause-button {
   position: relative;
   cursor: pointer;
-  width: 50px;
-  height: 50px;
 
   .style-root {
     @include position-fill();
@@ -50,7 +48,7 @@
     border-radius: 50%;
   }
 
-  svg {
+  .applause-button-icon {
     @include centered-square(60%);
     @include position-fill();
     opacity: 0.8;
@@ -69,7 +67,7 @@
   }
 
   &.clapped {
-    svg {
+    .applause-button-icon {
       g.flat {
         visibility: visible;
       }
@@ -81,9 +79,9 @@
 
   .count-container {
     position: absolute;
-    top: -40%;
+    top: 10%;
+    right: -90%;
     width: 100%;
-    color: gray;
     user-select: none;
 
     .count {

@@ -221,7 +221,9 @@ export class ApplauseButton extends Component<Props, State> {
                     <div className="count-container">
                         <div className="count">{this.formatClaps(this.getTotalClapsCount())}</div>
                     </div>
-                    {this.renderIcon()}
+                    <div className="applause-button-icon">
+                        {this.renderIcon()}
+                    </div>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -10 20 20">
                         <g className="sparkle">
                             {this.renderSparkleParticles(10)}

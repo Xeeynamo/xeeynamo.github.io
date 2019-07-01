@@ -1,13 +1,7 @@
-.repository-name {
-    font-weight: bold
-};
-
-.repository-card {
-    max-width: 345;
-    background-color: black;
-};
-
-.repository-media {
-    min-height: 140px;
-    max-height: 140px;
-};
+.applause-button {
+    width: 30px;
+    height: 30px;
+    margin-right: 25px;
+    color: #3f51b5;
+    fill: #3f51b5;
+}
