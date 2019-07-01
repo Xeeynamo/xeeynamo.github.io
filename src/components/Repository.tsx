@@ -15,7 +15,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons'
 import { faHeart as fasHeart } from '@fortawesome/free-solid-svg-icons'
 
-import { openLink, gaSourceClick, gaHomepageClick, gaBehaviourClickButton, gaBehaviourClickCard } from '../services/Utilities';
+import { openLink, gaClick, gaSourceClick, gaHomepageClick, gaBehaviourClickButton, gaBehaviourClickCard, gaBehaviour } from '../services/Utilities';
 import { ApplauseButton } from './ApplauseButton';
 
 
@@ -79,6 +79,10 @@ export class Repository extends Component<Props, State> {
         this.gotoHomepage();
     }
 
+    private onApplauseButtonClick(event: React.MouseEvent<HTMLElement>) {
+        gaClick('heart', this.props.name);
+    }
+
     private onCardClick(event: React.MouseEvent<HTMLButtonElement>) {
         gaBehaviourClickCard(this.props.name);
         if (this.hasHomePage())
@@ -136,16 +140,18 @@ export class Repository extends Component<Props, State> {
 
     private renderApplauseButton() {
         return (
-            <ApplauseButton url={this.props.repoUrl}>
-                <svg viewBox="0 0 60 60">
-                    <g className="flat">
-                        <FontAwesomeIcon icon={fasHeart} />
-                    </g>
-                    <g className="outline">
-                        <FontAwesomeIcon icon={farHeart} />
-                    </g>
-                </svg>
-            </ApplauseButton>
+            <div onClick={this.onApplauseButtonClick}>
+                <ApplauseButton url={this.props.repoUrl}>
+                    <svg viewBox="0 0 60 60">
+                        <g className="flat">
+                            <FontAwesomeIcon icon={fasHeart} />
+                        </g>
+                        <g className="outline">
+                            <FontAwesomeIcon icon={farHeart} />
+                        </g>
+                    </svg>
+                </ApplauseButton>
+            </div>
         );
     }
 
