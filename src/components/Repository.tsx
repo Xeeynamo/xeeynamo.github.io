@@ -128,7 +128,7 @@ export class Repository extends Component<Props, State> {
             return;
 
         return (
-            <Button size="small" color="primary" onClick={this.onSourceButtonClick}>
+            <Button size="small" color="primary" onClick={this.onHomepageButtonClick}>
                 Homepage
             </Button>
         );
