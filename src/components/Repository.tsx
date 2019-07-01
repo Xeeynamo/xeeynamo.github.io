@@ -165,7 +165,7 @@ export class Repository extends Component<Props, State> {
                         className="repository-media"
                         style={this.style}
                         image={this.props.image}
-                        title="Contemplative Reptile"
+                        title={this.props.description}
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
