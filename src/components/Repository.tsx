@@ -10,7 +10,13 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons'
+import { faHeart as fasHeart } from '@fortawesome/free-solid-svg-icons'
+
 import { openLink, gaSourceClick, gaHomepageClick, gaBehaviourClickButton, gaBehaviourClickCard } from '../services/Utilities';
+import { ApplauseButton } from './ApplauseButton';
 
 
 const useStyles = makeStyles(
@@ -128,6 +134,29 @@ export class Repository extends Component<Props, State> {
         );
     }
 
+    private renderApplauseButton() {
+        return (
+            <ApplauseButton url={this.props.repoUrl}>
+                <svg viewBox="0 0 60 60">
+                    <g className="flat">
+                        <FontAwesomeIcon icon={fasHeart} />
+                    </g>
+                    <g className="outline">
+                        <FontAwesomeIcon icon={farHeart} />
+                    </g>
+                </svg>
+            </ApplauseButton>
+        );
+    }
+
+    private renderSourceButton() {
+        return (
+            <Button size="small" color="primary" onClick={this.onSourceButtonClick}>
+                Source
+            </Button>
+        );
+    }
+
     render() {
         return (
             <Card>
@@ -148,10 +177,9 @@ export class Repository extends Component<Props, State> {
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
+                    {this.renderApplauseButton()}
                     {this.renderWebsiteButton()}
-                    <Button size="small" color="primary" onClick={this.onSourceButtonClick}>
-                        Source
-                    </Button>
+                    {this.renderSourceButton()}
                 </CardActions>
             </Card>
         );
