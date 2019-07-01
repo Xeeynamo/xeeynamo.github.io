@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Icon from '@material-ui/core/Icon';
 import './Repository.css';
 
-import { createStyles, makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -15,17 +14,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons'
 import { faHeart as fasHeart } from '@fortawesome/free-solid-svg-icons'
 
-import { openLink, gaClick, gaSourceClick, gaHomepageClick, gaBehaviourClickButton, gaBehaviourClickCard, gaBehaviour } from '../services/Utilities';
+import { openLink, gaClick, gaSourceClick, gaHomepageClick, gaBehaviourClickButton, gaBehaviourClickCard } from '../services/Utilities';
 import { ApplauseButton } from './ApplauseButton';
-
-
-const useStyles = makeStyles(
-    createStyles({
-        media: {
-            height: 140,
-        },
-    }),
-);
 
 interface Props {
     height: number
