@@ -131,7 +131,7 @@ export class ApplauseButton extends Component<Props, State> {
     }
 
     private async fetchClaps(): Promise<void> {
-        let clapCount = Number(await this.getClaps());
+        let clapCount = Number(await this.getClaps(this.props.url));
 
         this.setState({
             isLoading: false,

@@ -24,6 +24,14 @@ describe('Applause button component', () => {
             },
             response: "44"
         });
+        moxios.stubRequest("https://api.applause-button.com/get-claps?url=/custom-url", {
+            status: 200,
+            headers: {
+                "Content-Type": "application/json",
+                "access-control-allow-origin": "*"
+            },
+            response: "123"
+        });
         moxios.stubRequest("https://api.applause-button.com/update-claps", {
             status: 200,
             headers: {
@@ -69,6 +77,17 @@ describe('Applause button component', () => {
         it("does not have max amount of claps reached", () => {
             const wrapper = mount(<ApplauseButton />);
             expect(wrapper.find(".style-root").hasClass("clap-limit-exceeded")).toBeFalsy();
+        });
+
+        it("get claps from custom url", async () => {
+            const wrapper = mount(<ApplauseButton url='/custom-url' />);
+            await delay(sleepTime);
+
+            const request = moxios.requests.mostRecent();
+            expect(request.config.url).toBe("https://api.applause-button.com/get-claps?url=/custom-url");
+            expect(request.config.method).toBe("get");
+
+            expect(wrapper.find(".count").text()).toEqual("123");
         });
     })
 
