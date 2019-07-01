@@ -194,6 +194,13 @@ export class ApplauseButton extends Component<Props, State> {
         </svg>
     );
 
+    private renderIcon() {
+        if (this.props.children === undefined)
+            return this.renderClap()
+
+        return this.props.children;
+    }
+
     private renderSparkleParticles = (particleCount: number) => this
         .arrayOfSize(particleCount)
         .map(s => (<g key={`particle-${s}`}><circle cx={0} cy={0} r={1} /></g>));
@@ -214,7 +221,7 @@ export class ApplauseButton extends Component<Props, State> {
                     <div className="count-container">
                         <div className="count">{this.formatClaps(this.getTotalClapsCount())}</div>
                     </div>
-                    {this.renderClap()}
+                    {this.renderIcon()}
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -10 20 20">
                         <g className="sparkle">
                             {this.renderSparkleParticles(10)}
