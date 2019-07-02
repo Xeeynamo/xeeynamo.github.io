@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Icon from '@material-ui/core/Icon';
-import './Repository.css';
 
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -16,6 +15,7 @@ import { faHeart as fasHeart } from '@fortawesome/free-solid-svg-icons'
 
 import { openLink, gaClick, gaSourceClick, gaHomepageClick, gaBehaviourClickButton, gaBehaviourClickCard } from '../services/Utilities';
 import { ApplauseButton } from './ApplauseButton';
+import './Repository.css';
 
 interface Props {
     height: number
