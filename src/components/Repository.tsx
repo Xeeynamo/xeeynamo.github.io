@@ -52,6 +52,8 @@ export class Repository extends Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.onSourceButtonClick = this.onSourceButtonClick.bind(this);
+        this.onHomepageButtonClick = this.onHomepageButtonClick.bind(this);
+        this.onApplauseButtonClick = this.onApplauseButtonClick.bind(this);
         this.onCardClick = this.onCardClick.bind(this);
     }
 
@@ -59,14 +61,26 @@ export class Repository extends Component<Props, State> {
         height: `${this.props.height}px`,
     };
 
+    private hasHomePage(): boolean {
+        return this.props.homepage != null && this.props.homepage.length > 0;
+    }
+
+    private getHomepageUrl(): string {
+        return this.hasHomePage() ? this.props.homepage : this.props.repoUrl;
+    }
+
+    private getSourceUrl(): string {
+        return this.props.repoUrl;
+    }
+
     private gotoHomepage() {
         gaHomepageClick(this.props.name);
-        openLink(this.props.repoUrl);
+        openLink(this.getHomepageUrl());
     }
 
     private gotoSource() {
         gaSourceClick(this.props.name);
-        openLink(this.props.repoUrl);
+        openLink(this.getSourceUrl());
     }
 
     private onSourceButtonClick(event: React.MouseEvent<HTMLButtonElement>) {
@@ -91,23 +105,15 @@ export class Repository extends Component<Props, State> {
             this.gotoSource();
     }
 
-    private hasHomePage() {
-        return this.props.homepage != null && this.props.homepage.length > 0;
-    }
-
     private getLastUpdate() {
         return this.props.updatedAt > this.props.pushedAt ?
             this.props.updatedAt : this.props.pushedAt;
     }
 
-    private getHomePage() {
-        return this.hasHomePage() ? this.props.homepage : this.props.repoUrl;
-    }
-
     private renderContent() {
         return (
             <div>
-                <a className="repository-name" href={this.getHomePage()} target="_blank" rel="noopener noreferrer">
+                <a className="repository-name" href={this.getHomepageUrl()} target="_blank" rel="noopener noreferrer">
                     {this.props.name}
                 </a>
                 <div>
