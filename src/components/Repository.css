@@ -1,3 +1,7 @@
+.hidden {
+    display:none;
+}
+
 .applause-button {
     width: 30px;
     height: 30px;

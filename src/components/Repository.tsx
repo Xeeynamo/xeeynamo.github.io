@@ -139,6 +139,7 @@ export class Repository extends Component<Props, State> {
 
         return (
             <Button size="small" color="primary" onClick={this.onHomepageButtonClick}>
+                <a className="hidden" href={this.getHomepageUrl()}>Homepage</a>
                 Homepage
             </Button>
         );
@@ -164,6 +165,7 @@ export class Repository extends Component<Props, State> {
     private renderSourceButton() {
         return (
             <Button size="small" color="primary" onClick={this.onSourceButtonClick}>
+                <a className="hidden" href={this.getSourceUrl()}>Source</a>
                 Source
             </Button>
         );
