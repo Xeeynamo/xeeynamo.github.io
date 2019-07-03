@@ -56,7 +56,7 @@ export class Repository extends Component<Props, State> {
     }
 
     private getHomepageUrl(): string {
-        return this.hasHomePage() ? this.props.homepage : this.props.repoUrl;
+        return this.hasHomePage() ? (this.props.homepage || this.props.repoUrl) : this.props.repoUrl;
     }
 
     private getSourceUrl(): string {
