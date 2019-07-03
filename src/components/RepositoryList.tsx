@@ -123,7 +123,7 @@ export class RepositoryList extends Component<Props, State> {
     }
 
     private getRepositories() {
-        if (this.state.repositories === undefined)
+        if (!this.state.repositories)
             return [];
 
         let includeForks = this.state.includeForks;
@@ -150,7 +150,7 @@ export class RepositoryList extends Component<Props, State> {
     }
 
     private renderRepositories(height: number) {
-        if (this.state.repositories === undefined)
+        if (!this.state.repositories)
             return (<div>Loading...</div>);
 
         return this.getRepositories().map((x: any) => {

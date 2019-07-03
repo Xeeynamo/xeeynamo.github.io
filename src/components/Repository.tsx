@@ -13,7 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons'
 import { faHeart as fasHeart } from '@fortawesome/free-solid-svg-icons'
 
-import { openLink, gaClick, gaSourceClick, gaHomepageClick, gaBehaviourClickButton, gaBehaviourClickCard } from '../services/Utilities';
+import { openLink, ga } from '../services/Utilities';
 import { ApplauseButton } from './ApplauseButton';
 import './Repository.css';
 
@@ -52,7 +52,7 @@ export class Repository extends Component<Props, State> {
     };
 
     private hasHomePage(): boolean {
-        return this.props.homepage != null && this.props.homepage.length > 0;
+        return !!this.props.homepage && this.props.homepage.length > 0;
     }
 
     private getHomepageUrl(): string {
@@ -64,31 +64,31 @@ export class Repository extends Component<Props, State> {
     }
 
     private gotoHomepage() {
-        gaHomepageClick(this.props.name);
+        ga.homepageClick(this.props.name);
         openLink(this.getHomepageUrl());
     }
 
     private gotoSource() {
-        gaSourceClick(this.props.name);
+        ga.sourceClick(this.props.name);
         openLink(this.getSourceUrl());
     }
 
     private onSourceButtonClick(event: React.MouseEvent<HTMLButtonElement>) {
-        gaBehaviourClickButton(this.props.name);
+        ga.behaviourClickButton(this.props.name);
         this.gotoSource();
     }
 
     private onHomepageButtonClick(event: React.MouseEvent<HTMLButtonElement>) {
-        gaBehaviourClickButton(this.props.name);
+        ga.behaviourClickButton(this.props.name);
         this.gotoHomepage();
     }
 
     private onApplauseButtonClick(event: React.MouseEvent<HTMLElement>) {
-        gaClick('heart', this.props.name);
+        ga.click('heart', this.props.name);
     }
 
     private onCardClick(event: React.MouseEvent<HTMLButtonElement>) {
-        gaBehaviourClickCard(this.props.name);
+        ga.behaviourClickCard(this.props.name);
         if (this.hasHomePage())
             this.gotoHomepage();
         else

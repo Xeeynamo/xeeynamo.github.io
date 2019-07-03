@@ -3,11 +3,14 @@ import ReactGA from 'react-ga';
 import { configure, shallow, mount, render, ShallowWrapper } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { Repository } from './Repository';
+import { ga } from '../services/Utilities';
 
 describe('Repository component', () => {
 
     beforeAll(() => {
         configure({ adapter: new Adapter() });
+
+        ga.event = function() {}
     })
 
     afterAll(() => {

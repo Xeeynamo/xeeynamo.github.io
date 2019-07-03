@@ -1,45 +1,47 @@
 import ReactGA from 'react-ga';
 
-export function isDebugMode(): boolean {
+export const isDebugMode = (): boolean => {
     return process.env.NODE_ENV !== "production";
 }
 
-export function debugLog(text: string) {
+export const debugLog = (text: string): void => {
     console.log(`%c ${text}`, 'background: #111; color: #fa8');
 }
 
-export function openLink(url: string) {
+export const openLink = (url: string): void => {
     window.open(url, "_blank");
 }
 
-export function gaEvent(category: string, action: string, label: string): void {
-    ReactGA.event({
-        category: category,
-        action: action,
-        label: label
-    });
-}
+export const ga = {
+    event: (category: string, action: string, label: string): void => {
+        ReactGA.event({
+            category: category,
+            action: action,
+            label: label
+        });
+    },
 
-export function gaClick(action: string, label: string): void {
-    gaEvent("Navigation", action, label);
-}
+    click: (action: string, label: string): void => {
+        ga.event("Navigation", action, label);
+    },
 
-export function gaBehaviour(action: string, label: string): void {
-    gaEvent("Behaviour", action, label);
-}
+    behaviour: (action: string, label: string): void => {
+        ga.event("Behaviour", action, label);
+    },
 
-export function gaHomepageClick(label: string): void {
-    gaClick("Homepage", label);
-}
+    homepageClick: (label: string): void => {
+        ga.click("Homepage", label);
+    },
 
-export function gaSourceClick(label: string): void {
-    gaClick("Source", label);
-}
+    sourceClick: (label: string): void => {
+        ga.click("Source", label);
+    },
 
-export function gaBehaviourClickButton(label: string): void {
-    gaBehaviour("button", label);
-}
+    behaviourClickButton: (label: string): void => {
+        ga.behaviour("button", label);
+    },
 
-export function gaBehaviourClickCard(label: string): void {
-    gaBehaviour("card", label);
+    behaviourClickCard: (label: string): void => {
+        ga.behaviour("card", label);
+    },
 }
