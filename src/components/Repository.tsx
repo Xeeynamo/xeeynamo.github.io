@@ -23,7 +23,7 @@ interface Props {
     image: string
     description: string
     repoUrl: string
-    homepage: string
+    homepage?: string
     createdAt: string
     updatedAt: string
     pushedAt: string
@@ -128,7 +128,7 @@ export class Repository extends Component<Props, State> {
             return;
 
         return (
-            <Button size="small" color="primary" onClick={this.onHomepageButtonClick}>
+            <Button className="repository-button-homepage" size="small" color="primary" onClick={this.onHomepageButtonClick}>
                 <a className="hidden" href={this.getHomepageUrl()}>Homepage</a>
                 Homepage
             </Button>
@@ -154,7 +154,7 @@ export class Repository extends Component<Props, State> {
 
     private renderSourceButton() {
         return (
-            <Button size="small" color="primary" onClick={this.onSourceButtonClick}>
+            <Button className="repository-button-source" size="small" color="primary" onClick={this.onSourceButtonClick}>
                 <a className="hidden" href={this.getSourceUrl()}>Source</a>
                 Source
             </Button>
@@ -164,7 +164,7 @@ export class Repository extends Component<Props, State> {
     render() {
         return (
             <Card>
-                <CardActionArea onClick={this.onCardClick}>
+                <CardActionArea className="repository-header" onClick={this.onCardClick}>
                     <CardMedia
                         className="repository-media"
                         style={this.style}
@@ -172,10 +172,10 @@ export class Repository extends Component<Props, State> {
                         title={this.props.description}
                     />
                     <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">
+                        <Typography className="repository-name" gutterBottom variant="h5" component="h2">
                             {this.props.name}
                         </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">
+                        <Typography className="repository-description" variant="body2" color="textSecondary" component="p">
                             {this.props.description}
                         </Typography>
                     </CardContent>

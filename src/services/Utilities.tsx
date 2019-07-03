@@ -9,10 +9,7 @@ export function debugLog(text: string) {
 }
 
 export function openLink(url: string) {
-    if (isDebugMode())
-        debugLog(`Mocked openLink("${url}")`)
-    else
-        window.open(url, "_blank");
+    window.open(url, "_blank");
 }
 
 export function gaEvent(category: string, action: string, label: string): void {
