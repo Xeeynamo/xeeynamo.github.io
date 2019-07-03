@@ -5,7 +5,7 @@ import axios from 'axios'
 import moxios from 'moxios'
 import Profile from './Profile';
 
-describe('Profile component', function() {
+describe('Profile component', function () {
     beforeAll(() => {
         moxios.install();
     });
@@ -22,7 +22,7 @@ describe('Profile component', function() {
 
     it('use the correct user name', async () => {
         const component = renderer.create(
-            <Profile userName="test"/>
+            <Profile userName="test" />
         );
 
         expect(component.root.props.userName).toBe('test');

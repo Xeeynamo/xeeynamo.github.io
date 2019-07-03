@@ -1,12 +1,12 @@
 .hidden {
-    display:none;
+  display: none;
 }
 
 .applause-button {
-    width: 30px;
-    height: 30px;
-    position: relative;
-    margin-right: 25px;
-    color: #3f51b5;
-    fill: #3f51b5;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  margin-right: 25px;
+  color: #3f51b5;
+  fill: #3f51b5;
 }

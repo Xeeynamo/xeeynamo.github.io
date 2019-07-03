@@ -1,7 +1,7 @@
 import ReactGA from 'react-ga';
 
 export function isDebugMode(): boolean {
-        return process.env.NODE_ENV !== "production";
+    return process.env.NODE_ENV !== "production";
 }
 
 export function debugLog(text: string) {
@@ -10,7 +10,7 @@ export function debugLog(text: string) {
 
 export function openLink(url: string) {
     if (isDebugMode())
-        debugLog(`Mocked openLink("${url}")`, )
+        debugLog(`Mocked openLink("${url}")`)
     else
         window.open(url, "_blank");
 }

@@ -119,7 +119,7 @@ describe('Applause button component', () => {
         });
 
         it("ensure that only a single clap is registered if not in multiclap mode", async () => {
-            const wrapper = shallow(<ApplauseButton multiClap={false} bufferTimer={myBufferTime}/>);
+            const wrapper = shallow(<ApplauseButton multiClap={false} bufferTimer={myBufferTime} />);
             clickTheButton(wrapper);
             clickTheButton(wrapper);
             await delay(sleepTimeForBufferTime);

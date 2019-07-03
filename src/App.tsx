@@ -26,7 +26,7 @@ const App: React.FC = () => {
           {isDebugMode() ? "Debug mode" : "Work in progress"}
         </p>
       </header>
-      <MasterProfile userName={config.userName}/>
+      <MasterProfile userName={config.userName} />
     </div>
   );
 }

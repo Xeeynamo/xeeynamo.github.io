@@ -14,8 +14,8 @@ export class MasterProfile extends Component<Props, State> {
     render() {
         return (
             <div>
-                <Profile userName={ this.props.userName }/>
-                <RepositoryList userName={ this.props.userName }/>
+                <Profile userName={this.props.userName} />
+                <RepositoryList userName={this.props.userName} />
             </div>
         );
     }

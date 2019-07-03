@@ -1,7 +1,7 @@
 import React, { Component, ChangeEvent } from 'react';
 import { Repository } from './Repository';
 import { octokit } from '../services/Octokit'
-import { Select, MenuItem,  Hidden } from '@material-ui/core';
+import { Select, MenuItem, Hidden } from '@material-ui/core';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import Switch from '@material-ui/core/Switch';
@@ -138,7 +138,7 @@ export class RepositoryList extends Component<Props, State> {
     }
 
     getRepositoryConfig(name: string) {
-        return repositories.find(function(x: any) {
+        return repositories.find(function (x: any) {
             return x.name.toUpperCase() === name.toUpperCase()
         });
     }
