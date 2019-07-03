@@ -81,57 +81,61 @@ describe('Repository component', () => {
         it('Go to homepage when "Homepage" button is clicked', () => {
             const expected = "SomeRandomHomepage";
 
-            window.open = jest.fn().mockReturnValue(() => null);
+            const fnMocked = jest.fn().mockReturnValue(() => null);
+            window.open = fnMocked;
             const wrapper = shallow(getRepository({ homepage: expected }));
             let button = wrapper.find(".repository-button-homepage");
 
             button.simulate("click");
 
-            expect(window.open.mock.calls.length).toBe(1);
-            expect(window.open.mock.calls[0][0]).toBe(expected);
-            expect(window.open.mock.calls[0][1]).toBe("_blank");
+            expect(fnMocked.mock.calls.length).toBe(1);
+            expect(fnMocked.mock.calls[0][0]).toBe(expected);
+            expect(fnMocked.mock.calls[0][1]).toBe("_blank");
         });
 
         it('Go to source when "Source" button is clicked', () => {
             const expected = "SomeRandomRepoUrl";
 
-            window.open = jest.fn().mockReturnValue(() => null);
+            const fnMocked = jest.fn().mockReturnValue(() => null);
+            window.open = fnMocked;
             const wrapper = shallow(getRepository({ repoUrl: expected }));
             let button = wrapper.find(".repository-button-source");
 
             button.simulate("click");
 
-            expect(window.open.mock.calls.length).toBe(1);
-            expect(window.open.mock.calls[0][0]).toBe(expected);
-            expect(window.open.mock.calls[0][1]).toBe("_blank");
+            expect(fnMocked.mock.calls.length).toBe(1);
+            expect(fnMocked.mock.calls[0][0]).toBe(expected);
+            expect(fnMocked.mock.calls[0][1]).toBe("_blank");
         });
 
         it('Go to homepage when the homepage is specified and the card is clicked', () => {
             const expected = "ThisIsAnHomepage";
 
-            window.open = jest.fn().mockReturnValue(() => null);
+            const fnMocked = jest.fn().mockReturnValue(() => null);
+            window.open = fnMocked;
             const wrapper = shallow(getRepository({ homepage: expected, repoUrl: "NoPlz" }));
             let button = wrapper.find(".repository-header");
 
             button.simulate("click");
 
-            expect(window.open.mock.calls.length).toBe(1);
-            expect(window.open.mock.calls[0][0]).toBe(expected);
-            expect(window.open.mock.calls[0][1]).toBe("_blank");
+            expect(fnMocked.mock.calls.length).toBe(1);
+            expect(fnMocked.mock.calls[0][0]).toBe(expected);
+            expect(fnMocked.mock.calls[0][1]).toBe("_blank");
         });
 
         it('Go to source when the homepage is not specified and the card is clicked', () => {
             const expected = "SourceCodeUrl";
 
-            window.open = jest.fn().mockReturnValue(() => null);
+            const fnMocked = jest.fn().mockReturnValue(() => null);
+            window.open = fnMocked;
             const wrapper = shallow(getRepository({ repoUrl: "SourceCodeUrl" }));
             let button = wrapper.find(".repository-header");
 
             button.simulate("click");
 
-            expect(window.open.mock.calls.length).toBe(1);
-            expect(window.open.mock.calls[0][0]).toBe(expected);
-            expect(window.open.mock.calls[0][1]).toBe("_blank");
+            expect(fnMocked.mock.calls.length).toBe(1);
+            expect(fnMocked.mock.calls[0][0]).toBe(expected);
+            expect(fnMocked.mock.calls[0][1]).toBe("_blank");
         });
     })
 })
