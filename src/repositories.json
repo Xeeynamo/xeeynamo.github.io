@@ -10,5 +10,9 @@
     {
         "name": "s3kse",
         "image": "https://repository-images.githubusercontent.com/193757163/8ab56180-9788-11e9-8489-9c1eb5d37da4"
+    },
+    {
+        "name": "setup",
+        "image": "https://repository-images.githubusercontent.com/173298823/b0b4b480-9dcd-11e9-9e73-0614f79813d8"
     }
 ]
