@@ -54,7 +54,7 @@ export class ApplauseButton extends Component<Props, State> {
     }
 
     private async getClaps(url?: string): Promise<string> {
-        let query = url !== undefined ? `?url=${url}` : "";
+        let query = url ? `?url=${url}` : "";
         let response = await axios.get<string>(`${this.API}/get-claps${query}`, {
             headers: this.HEADERS
         });
@@ -63,7 +63,7 @@ export class ApplauseButton extends Component<Props, State> {
     }
 
     private async updateClaps(claps: number, url?: string): Promise<string> {
-        let query = url !== undefined ? `?url=${url}` : "";
+        let query = url ? `?url=${url}` : "";
         let response = await axios.post<string>(`${this.API}/update-claps${query}`,
             JSON.stringify(`${claps},${this.VERSION}`), {
                 headers: this.HEADERS
@@ -98,7 +98,7 @@ export class ApplauseButton extends Component<Props, State> {
         const context = this;
         return function () {
             const args = arguments;
-            if (context.timer !== undefined)
+            if (context.timer)
                 clearTimeout(context.timer);
             context.timer = setTimeout(() => fn.apply(context, args), delay);
         }
@@ -117,7 +117,7 @@ export class ApplauseButton extends Component<Props, State> {
     }
 
     private getTotalClapsCount(): number {
-        const totalClaps = this.state.totalClaps !== undefined ? this.state.totalClaps : -Infinity;
+        const totalClaps = this.state.totalClaps ? this.state.totalClaps : -Infinity;
         return totalClaps + this.state.userClaps + this._bufferedClaps;
     }
 
@@ -156,7 +156,7 @@ export class ApplauseButton extends Component<Props, State> {
                     userClaps: this.state.userClaps + increment
                 });
             }
-        }, this.props.bufferTimer !== undefined ? this.props.bufferTimer : this.DEFAULT_BUFFER_TIMER)();
+        }, this.props.bufferTimer ? this.props.bufferTimer : this.DEFAULT_BUFFER_TIMER)();
     }
 
     private onMouseDown(event: React.MouseEvent<HTMLDivElement, MouseEvent>): void {
@@ -195,7 +195,7 @@ export class ApplauseButton extends Component<Props, State> {
     );
 
     private renderIcon() {
-        if (this.props.children === undefined)
+        if (!this.props.children)
             return this.renderClap()
 
         return this.props.children;
