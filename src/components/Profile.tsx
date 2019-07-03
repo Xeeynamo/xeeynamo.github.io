@@ -28,7 +28,7 @@ export class Profile extends Component<Props, State> {
         this.fetchUser(this.props.userName);
     }
 
-    async fetchUser(userName: string) {
+    private async fetchUser(userName: string) {
         const response = await octokit.users.getByUsername({
             username: userName
         })

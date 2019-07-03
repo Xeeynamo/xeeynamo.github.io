@@ -40,7 +40,7 @@ export class RepositoryList extends Component<Props, State> {
         this.fetchRepositories(this.props.userName);
     }
 
-    async fetchRepositories(userName: string) {
+    private async fetchRepositories(userName: string) {
         const response = await octokit.repos.listForUser({
             username: userName,
             per_page: 100
@@ -52,19 +52,19 @@ export class RepositoryList extends Component<Props, State> {
         });
     }
 
-    handleIncludeForkChange(event: ChangeEvent<HTMLInputElement>, checked: boolean) {
+    private handleIncludeForkChange(event: ChangeEvent<HTMLInputElement>, checked: boolean) {
         this.setState({
             includeForks: checked
         });
     }
 
-    handleSortOptionChange(event: ChangeEvent<{ name?: string; value: unknown }>) {
+    private handleSortOptionChange(event: ChangeEvent<{ name?: string; value: unknown }>) {
         this.setState({
             sortOption: event.target.value as string
         });
     }
 
-    handleOrderOptionChange(event: ChangeEvent<{ name?: string; value: unknown }>) {
+    private handleOrderOptionChange(event: ChangeEvent<{ name?: string; value: unknown }>) {
         this.setState({
             orderOption: event.target.value as string
         });
@@ -122,7 +122,7 @@ export class RepositoryList extends Component<Props, State> {
         };
     }
 
-    getRepositories() {
+    private getRepositories() {
         if (this.state.repositories === undefined)
             return [];
 
@@ -133,23 +133,23 @@ export class RepositoryList extends Component<Props, State> {
             .sort(this.getSortAscDescRepositories());
     }
 
-    getRepositoryCount() {
+    private getRepositoryCount() {
         return this.getRepositories().length;
     }
 
-    getRepositoryConfig(name: string) {
+    private getRepositoryConfig(name: string) {
         return repositories.find(function (x: any) {
             return x.name.toUpperCase() === name.toUpperCase()
         });
     }
 
-    getRepositoryImage(config: any) {
+    private getRepositoryImage(config: any) {
         if (config == null || config.image == null)
             return "/image/repo/default.png";
         return config.image;
     }
 
-    renderRepositories(height: number) {
+    private renderRepositories(height: number) {
         if (this.state.repositories === undefined)
             return (<div>Loading...</div>);
 
@@ -179,7 +179,7 @@ export class RepositoryList extends Component<Props, State> {
         });
     }
 
-    renderIncludeSwitch() {
+    private renderIncludeSwitch() {
         return (
             <FormControlLabel control={
                 <Switch
@@ -189,7 +189,7 @@ export class RepositoryList extends Component<Props, State> {
         );
     }
 
-    renderSortMethod() {
+    private renderSortMethod() {
         return (
             <Select
                 value={this.state.sortOption}
@@ -205,7 +205,7 @@ export class RepositoryList extends Component<Props, State> {
         );
     }
 
-    renderOrderMethod() {
+    private renderOrderMethod() {
         return (
             <Select
                 value={this.state.orderOption}
@@ -217,7 +217,7 @@ export class RepositoryList extends Component<Props, State> {
         );
     }
 
-    renderOptions() {
+    private renderOptions() {
         return (
             <div className="repository-filter">
                 {this.renderIncludeSwitch()}
