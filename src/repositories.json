@@ -14,5 +14,9 @@
     {
         "name": "setup",
         "image": "https://repository-images.githubusercontent.com/173298823/b0b4b480-9dcd-11e9-9e73-0614f79813d8"
+    },
+    {
+        "name": "XeEngine.Tools.Public",
+        "image": "https://repository-images.githubusercontent.com/141192672/48dbd200-a11d-11e9-9649-e7e0d3702507"
     }
 ]
