@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Icon from '@material-ui/core/Icon';
-
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -98,29 +96,6 @@ export class Repository extends Component<Props, State> {
     private getLastUpdate() {
         return this.props.updatedAt > this.props.pushedAt ?
             this.props.updatedAt : this.props.pushedAt;
-    }
-
-    private renderContent() {
-        return (
-            <div>
-                <a className="repository-name" href={this.getHomepageUrl()} target="_blank" rel="noopener noreferrer">
-                    {this.props.name}
-                </a>
-                <div>
-                    {this.props.description}
-                </div>
-                <br />
-                <div>
-                    <span><Icon>star_border</Icon> {this.props.watchersCount}</span>
-                    <span> | </span>
-
-                    <span><Icon>file_copy</Icon>  {this.props.forksCount}</span>
-                </div>
-                <div>
-                    <Icon>access_time</Icon> {this.getLastUpdate()}
-                </div>
-            </div>
-        );
     }
 
     private renderWebsiteButton() {

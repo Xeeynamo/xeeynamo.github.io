@@ -1,6 +1,6 @@
 import React from 'react';
 import './Profile.css'
-import { Theme, createStyles, makeStyles, useTheme } from '@material-ui/core/styles';
+import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import { Card, CardContent, Typography, CardMedia, Link } from '@material-ui/core';
 import { openLink, ga } from '../services/Utilities';
 
