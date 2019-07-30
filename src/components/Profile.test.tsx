@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import renderer from 'react-test-renderer'
 import axios from 'axios'
 import moxios from 'moxios'
-import Profile from './Profile';
+import { Profile } from './Profile';
+import { shallow, configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 describe('Profile component', function () {
     beforeAll(() => {
+        configure({ adapter: new Adapter() });
+
         moxios.install();
     });
 
@@ -14,24 +17,37 @@ describe('Profile component', function () {
         moxios.uninstall();
     });
 
+    const getProfile = (props: {
+        name?: string,
+        imageUrl?: string,
+        homeUrl?: string,
+        fullName?: string
+    }) => (
+            <Profile
+                name={props.name || "RepoTest"}
+                imageUrl={props.imageUrl || "imageUrl"}
+                homeUrl={props.homeUrl || "homeUrl"}
+                fullName={props.fullName || "fullName"}
+            />
+        )
+
     it('renders without crashing', () => {
         const div = document.createElement('div');
-        ReactDOM.render(<Profile userName="test" />, div);
+        ReactDOM.render(getProfile({}), div);
         ReactDOM.unmountComponentAtNode(div);
     });
 
     it('use the correct user name', async () => {
-        const component = renderer.create(
-            <Profile userName="test" />
-        );
+        const expected = "SomeRandomUserName";
+        const wrapper = shallow(getProfile({ name: expected }));
 
-        expect(component.root.props.userName).toBe('test');
+        expect(wrapper.find(".profile-username").text()).toEqual(expected);
     });
 
     it('fetch the correct user details', async () => {
         moxios.stubRequest('https://api.github.com/users/test', {
             status: 200,
-            responseText: {
+            response: {
                 name: "myName"
             }
         });

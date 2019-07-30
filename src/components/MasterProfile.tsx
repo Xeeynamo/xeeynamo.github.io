@@ -55,7 +55,6 @@ export class MasterProfile extends Component<Props, State> {
         return (
             <Profile
                 name={this.state.user.name}
-                id={this.state.user.id}
                 imageUrl={this.state.user.imageUrl}
                 homeUrl={this.state.user.homeUrl}
                 fullName={this.state.user.fullName}

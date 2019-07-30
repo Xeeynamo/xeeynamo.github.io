@@ -4,14 +4,6 @@ import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import { Card, CardContent, Typography, CardMedia, Link } from '@material-ui/core';
 import { openLink, ga } from '../services/Utilities';
 
-interface Props {
-    name: string;
-    id: number;
-    imageUrl: string;
-    homeUrl: string;
-    fullName: string;
-}
-
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         card: {
@@ -49,7 +41,12 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export function Profile(props: Props) {
+export function Profile(props: {
+    name: string
+    imageUrl: string
+    homeUrl: string
+    fullName: string
+}) {
     const classes = useStyles();
 
     return (
@@ -86,7 +83,7 @@ export function Profile(props: Props) {
                                 openLink(props.homeUrl)
                             }}
                         >
-                            <Typography variant="subtitle1" color="textSecondary">
+                            <Typography className="profile-username" variant="subtitle1" color="textSecondary">
                                 {props.name}
                             </Typography>
                         </Link>
