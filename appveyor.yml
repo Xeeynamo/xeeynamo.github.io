@@ -1,0 +1,33 @@
+version: 1.0.{build}
+
+environment:
+  nodejs_version: "14"
+  access_token:
+    secure: ERXwswsfI7DN1bD2YkYDfUtokQJL6+oxhudbGPkbGc6cVOaeKizRsul4qwvNzTdz
+
+branches:
+  only:
+    - develop
+  except:
+    - master
+
+skip_tags: true
+skip_non_tags: false
+
+build: off
+
+install:
+  - npm install
+
+test_script:
+  - node --version
+  - npm --version
+  - npm test
+
+deploy_script:
+  - git config --global credential.helper store
+  - ps: Add-Content "$env:USERPROFILE.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+  - ps: git config --global user.name $($env:APPVEYOR_REPO_COMMIT_AUTHOR)
+  - ps: git config --global user.email $($env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL)
+  - ps: Add-Content "$HOME\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+  - npm run deploy
