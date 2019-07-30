@@ -7,9 +7,7 @@ environment:
 
 branches:
   only:
-    - develop
-  except:
-    - master
+  - develop
 
 skip_tags: true
 skip_non_tags: false
