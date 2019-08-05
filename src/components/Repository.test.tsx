@@ -10,7 +10,7 @@ describe('Repository component', () => {
     beforeAll(() => {
         configure({ adapter: new Adapter() });
 
-        ga.event = function() {}
+        ga.event = function () { }
     })
 
     afterAll(() => {
@@ -78,6 +78,18 @@ describe('Repository component', () => {
 
             expect(wrapper.find(".repository-button-homepage").length).toEqual(1);
         });
+
+        it('Show repository info', () => {
+            const wrapper = shallow(getRepository({ homepage: "SomeRandomHomepage" }));
+
+            expect(wrapper.find(".repository-info").length).toEqual(1);
+        });
+
+        it('Do not show repository details', () => {
+            const wrapper = shallow(getRepository({ homepage: "SomeRandomHomepage" }));
+
+            expect(wrapper.find(".repository-details").length).toEqual(0);
+        });
     })
 
     describe('User interaction', () => {
@@ -139,6 +151,26 @@ describe('Repository component', () => {
             expect(fnMocked.mock.calls.length).toBe(1);
             expect(fnMocked.mock.calls[0][0]).toBe(expected);
             expect(fnMocked.mock.calls[0][1]).toBe("_blank");
+        });
+
+        it('Show repository details when "Details" button is clicked', () => {
+            const wrapper = shallow(getRepository({}))
+            let button = wrapper.find(".repository-button-details")
+
+            button.simulate("click")
+            wrapper.update()
+
+            expect(wrapper.find(".repository-details").length).toEqual(1)
+        });
+
+        it('Do not show repository info when "Details" button is clicked', () => {
+            const wrapper = shallow(getRepository({}))
+            let button = wrapper.find(".repository-button-details")
+
+            button.simulate("click")
+            wrapper.update()
+
+            expect(wrapper.find(".repository-info").length).toEqual(0)
         });
     })
 })

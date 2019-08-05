@@ -13,6 +13,7 @@ import { faHeart as fasHeart } from '@fortawesome/free-solid-svg-icons'
 
 import { openLink, ga } from '../services/Utilities';
 import { ApplauseButton } from './ApplauseButton';
+import RepositoryDetails from './RepositoryDetails';
 import './Repository.css';
 
 interface Props {
@@ -33,7 +34,7 @@ interface Props {
 }
 
 interface State {
-
+    isFlipped: boolean
 }
 
 export class Repository extends Component<Props, State> {
@@ -41,8 +42,13 @@ export class Repository extends Component<Props, State> {
         super(props);
         this.onSourceButtonClick = this.onSourceButtonClick.bind(this);
         this.onHomepageButtonClick = this.onHomepageButtonClick.bind(this);
+        this.onDetailsButtonClick = this.onDetailsButtonClick.bind(this);
         this.onApplauseButtonClick = this.onApplauseButtonClick.bind(this);
         this.onCardClick = this.onCardClick.bind(this);
+
+        this.state = {
+            isFlipped: false
+        }
     }
 
     private style = {
@@ -59,6 +65,10 @@ export class Repository extends Component<Props, State> {
 
     private getSourceUrl(): string {
         return this.props.repoUrl;
+    }
+
+    private isFlipped(): boolean {
+        return this.state.isFlipped
     }
 
     private gotoHomepage() {
@@ -79,6 +89,12 @@ export class Repository extends Component<Props, State> {
     private onHomepageButtonClick(event: React.MouseEvent<HTMLButtonElement>) {
         ga.behaviourClickButton(this.props.name);
         this.gotoHomepage();
+    }
+
+    private onDetailsButtonClick(event: React.MouseEvent<HTMLButtonElement>) {
+        this.setState({
+            isFlipped: !this.state.isFlipped
+        })
     }
 
     private onApplauseButtonClick(event: React.MouseEvent<HTMLElement>) {
@@ -136,29 +152,58 @@ export class Repository extends Component<Props, State> {
         );
     }
 
+    private renderDetailsButton() {
+        return (
+            <Button className="repository-button-details" size="small" color="primary" onClick={this.onDetailsButtonClick}>
+                Details
+            </Button>
+        )
+    }
+
+    private renderCardArea() {
+        return this.isFlipped() ? this.renderDetails() : this.renderInfo();
+    }
+
+    private renderInfo() {
+        return (
+            <div className="repository-info">
+                <CardMedia
+                    className="repository-media"
+                    style={this.style}
+                    image={this.props.image}
+                    title={this.props.description}
+                />
+                <CardContent>
+                    <Typography className="repository-name" gutterBottom variant="h5" component="h2">
+                        {this.props.name}
+                    </Typography>
+                    <Typography className="repository-description" variant="body2" color="textSecondary" component="p">
+                        {this.props.description}
+                    </Typography>
+                </CardContent>
+            </div>
+        )
+    }
+
+    private renderDetails() {
+        return (
+            <div className="repository-details">
+                <RepositoryDetails />
+            </div>
+        )
+    }
+
     render() {
         return (
             <Card>
                 <CardActionArea className="repository-header" onClick={this.onCardClick}>
-                    <CardMedia
-                        className="repository-media"
-                        style={this.style}
-                        image={this.props.image}
-                        title={this.props.description}
-                    />
-                    <CardContent>
-                        <Typography className="repository-name" gutterBottom variant="h5" component="h2">
-                            {this.props.name}
-                        </Typography>
-                        <Typography className="repository-description" variant="body2" color="textSecondary" component="p">
-                            {this.props.description}
-                        </Typography>
-                    </CardContent>
+                    {this.renderCardArea()}
                 </CardActionArea>
                 <CardActions>
                     {this.renderApplauseButton()}
                     {this.renderWebsiteButton()}
                     {this.renderSourceButton()}
+                    {this.renderDetailsButton()}
                 </CardActions>
             </Card>
         );
