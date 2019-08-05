@@ -117,7 +117,7 @@ export class ApplauseButton extends Component<Props, State> {
     }
 
     private getTotalClapsCount(): number {
-        const totalClaps = this.state.totalClaps ? this.state.totalClaps : -Infinity;
+        const totalClaps = this.state.totalClaps !== undefined ? this.state.totalClaps : -Infinity;
         return totalClaps + this.state.userClaps + this._bufferedClaps;
     }
 
