@@ -15,3 +15,19 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
+  test:
+    name: Run tests
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run npm tests
+      run: |
+        npm test
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: action/checkout@v1
+    - name: Deploy on GitHub pages
+      run: |
+        npm deploy
