@@ -3,25 +3,15 @@ name: CI
 on: [push]
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-    
-    steps:
-    - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        npm install
   test:
     name: Run tests
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Run npm tests
-      run: |
-        npm test
+    - name: Install NPM packages
+      run: npm install
+    - name: Execute NPM tests
+      run: npm test
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
@@ -29,4 +19,5 @@ jobs:
     - uses: action/checkout@v1
     - name: Deploy on GitHub pages
       run: |
+        npm install
         npm deploy
