@@ -14,6 +14,7 @@ jobs:
     - name: Run a multi-line script
       run: |
         echo Add other actions to build,
+        npm i,
         echo test, and deploy your project.
   test:
     name: Run tests
