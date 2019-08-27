@@ -13,9 +13,7 @@ jobs:
       run: echo Hello, world!
     - name: Run a multi-line script
       run: |
-        echo Add other actions to build,
-        npm i,
-        echo test, and deploy your project.
+        npm install
   test:
     name: Run tests
     runs-on: ubuntu-latest
