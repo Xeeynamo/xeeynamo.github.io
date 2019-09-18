@@ -25,4 +25,4 @@ jobs:
     - name: Deploy on GitHub pages
       run: |
         npm install
-        npm deploy
+        npm run deploy
