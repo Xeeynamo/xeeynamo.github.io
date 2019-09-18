@@ -8,21 +8,22 @@ on:
     - test/*
 
 jobs:
-  test:
+  test-and-delpoy:
     name: Run tests
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
+    - name: Install npm packages
+      run: npm install
     - name: Run npm tests
-      run: |
-        npm install
-        CI=true npm test
-  deploy:
-    name: Deploy
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-    - name: Deploy on GitHub pages
-      run: |
-        npm install
-        npm run deploy
+      run: npm test
+      env:
+        CI: true
+    - name: Build and Deploy
+      uses: JamesIves/github-pages-deploy-action@master
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BASE_BRANCH: develop
+        BRANCH: master
+        FOLDER: build
+        BUILD_SCRIPT: npm install && npm run-script build
