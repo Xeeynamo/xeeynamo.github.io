@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches:
+    - develop
+    - release/*
+
+jobs:
+  test-and-delpoy:
+    name: Test and deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install npm packages
+      run: npm install
+    - name: Run npm tests
+      run: npm test
+      env:
+        CI: true
+    - name: Build and Deploy
+      uses: JamesIves/github-pages-deploy-action@master
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BASE_BRANCH: develop
+        BRANCH: master
+        FOLDER: build
+        BUILD_SCRIPT: npm run-script build
