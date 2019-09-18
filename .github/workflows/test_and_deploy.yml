@@ -5,11 +5,10 @@ on:
     branches:
     - develop
     - release/*
-    - test/*
 
 jobs:
   test-and-delpoy:
-    name: Run tests
+    name: Test and deploy
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
