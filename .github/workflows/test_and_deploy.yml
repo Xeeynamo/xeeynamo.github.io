@@ -15,6 +15,7 @@ jobs:
     - uses: actions/checkout@v1.0.0
     - name: Run npm tests
       run: |
+        npm install
         npm test
   deploy:
     name: Deploy
@@ -23,4 +24,5 @@ jobs:
     - uses: action/checkout@v1.0.0
     - name: Deploy on GitHub pages
       run: |
+        npm install
         npm deploy
