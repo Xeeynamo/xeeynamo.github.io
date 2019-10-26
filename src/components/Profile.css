@@ -1,3 +1,16 @@
 .profile {
   text-align: center;
 }
+
+.profile-sponsor {
+  vertical-align: super;
+  margin-left: 4px;
+}
+
+.sponsor-list {
+  margin-left: 12px;
+}
+
+.heart-icon {
+  color: #ea4aaa
+}

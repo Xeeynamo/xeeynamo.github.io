@@ -1,8 +1,10 @@
 import React from 'react';
 import './Profile.css'
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
-import { Card, CardContent, Typography, CardMedia, Link } from '@material-ui/core';
+import { Card, CardContent, Typography, CardMedia, Link, Divider } from '@material-ui/core';
 import { openLink, ga } from '../services/Utilities';
+import Octicon, { Heart } from '@primer/octicons-react'
+import Sponsors from './Sponsors'
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -87,6 +89,31 @@ export function Profile(props: {
                                 {props.name}
                             </Typography>
                         </Link>
+                    </div>
+                    <Divider variant="middle" />
+                    <div>
+                        <Link
+                            component="button"
+                            variant="body2"
+                            onClick={() => {
+                                ga.homepageClick("GitHub Sponsors");
+                                ga.behaviour("Sponsor title", "GitHub Sponsors")
+                                openLink(`https://github.com/sponsors/${props.name}`)
+                            }}
+                            >
+                            <Typography className="profile-sponsor" variant="subtitle1">
+                                <Octicon
+                                    className="heart-icon"
+                                    icon={Heart}
+                                    size="medium"
+                                    ariaLabel="GitHub Sponsors"
+                                />
+                                <span className="profile-sponsor"> Sponsors</span>
+                            </Typography>
+                        </Link>
+                        <div className="sponsor-list">
+                            <Sponsors/>
+                        </div>
                     </div>
                 </CardContent>
             </div>
