@@ -143,6 +143,12 @@ export class RepositoryList extends Component<Props, State> {
         });
     }
 
+    private getRepositoryFullName(defaultName: string, config: any) {
+        if (config == null || config.fullName == null)
+            return defaultName;
+        return config.fullName;
+    }
+
     private getRepositoryImage(config: any) {
         if (config == null || config.image == null)
             return "/image/repo/default.png";
@@ -154,14 +160,14 @@ export class RepositoryList extends Component<Props, State> {
             return (<div>Loading...</div>);
 
         return this.getRepositories().map((x: any) => {
-            const repository = this.getRepositoryConfig(x.name);
+            const repositoryConfig = this.getRepositoryConfig(x.name);
 
             return (
                 <GridListTile key={x.name} cols={1}>
                     <Repository
                         height={height}
-                        name={x.name}
-                        image={this.getRepositoryImage(repository)}
+                        name={this.getRepositoryFullName(x.name, repositoryConfig)}
+                        image={this.getRepositoryImage(repositoryConfig)}
                         description={x.description}
                         repoUrl={x.html_url}
                         homepage={x.homepage}
