@@ -18,11 +18,11 @@ jobs:
       run: npm test
       env:
         CI: true
-    - name: Build and Deploy
-      uses: JamesIves/github-pages-deploy-action@master
-      env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BASE_BRANCH: develop
-        BRANCH: master
-        FOLDER: build
-        BUILD_SCRIPT: npm run-script build
+    # - name: Build and Deploy
+    #   uses: JamesIves/github-pages-deploy-action@master
+    #   env:
+    #     ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+    #     BASE_BRANCH: develop
+    #     BRANCH: master
+    #     FOLDER: build
+    #     BUILD_SCRIPT: npm run-script build
