@@ -1,0 +1,11 @@
+.Project>h2 {
+  margin-top: 2em;
+}
+
+.Project>h3 {
+  font-weight: normal;
+}
+
+.Project>h3>a {
+  margin-right: 1em;
+}

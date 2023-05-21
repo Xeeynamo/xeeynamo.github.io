@@ -1,25 +1,49 @@
-import logo from './logo.svg';
 import './App.css';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Who from './components/Who'
+import Curriculum from './components/Curriculum'
+import Projects from './components/Projects';
+import NotFound from './components/NotFound'
 
-function App() {
+const routes = [
+  {
+    path: "/",
+    name: "Who",
+    element: renderPage(<Who />, true),
+    errorElement: <NotFound />
+  },
+  {
+    path: "/cv",
+    name: "CV",
+    element: renderPage(<Curriculum />, false),
+  },
+  {
+    path: "/projects",
+    name: "Projects",
+    element: renderPage(<Projects />, true),
+  }
+]
+const router = createBrowserRouter(routes);
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RouterProvider router={router} />
   );
 }
 
-export default App;
+function renderPage(inner, isCv) {
+  return (
+    <div className='App'>
+      <Header showExtraLinks={isCv} />
+      <div className='AppContent'>
+        {inner}
+      </div>
+      <Footer className='Footer' />
+    </div>
+  )
+}
