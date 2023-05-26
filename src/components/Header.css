@@ -17,17 +17,16 @@
 .Header>h2 {
   font-size: normal;
   font-weight: normal;
-  margin: 0;
 }
 
 nav {
   font-size: normal;
   font-weight: normal;
-  margin: 1vw;
+  margin: 1.5vw;
 }
 
 nav>a {
   font-size: normal;
   font-weight: normal;
-  margin: 0.5em;
+  margin: 1.25vw;
 }

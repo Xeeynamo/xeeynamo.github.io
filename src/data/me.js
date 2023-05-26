@@ -32,12 +32,6 @@ const header = {
       "url": "https://youtube.com/xeeynamo",
       "isExtraLink": true
     },
-    {
-      "name": "PSN Profiles",
-      "icon": "playstation",
-      "url": "https://psnprofiles.com/Xeeynamo",
-      "isExtraLink": true
-    },
   ]
 };
 

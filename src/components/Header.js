@@ -7,17 +7,17 @@ export default function Header(data) {
     <div className='Header'>
       <h1>{me.name}</h1>
       <h2>{me.title}</h2>
-      <nav key="routes">
-        <Link to="/who">Who</Link>
-        <Link to="/cv">CV</Link>
-        <Link to="/projects">Projects</Link>
-      </nav>
       <nav key="external">
         {me.links
           .filter(x => !x.isExtraLink || data.showExtraLinks)
           .map((x, i) => (
             <Link key={i} to={x.url}>{x.name}</Link>
           ))}
+      </nav>
+      <nav key="routes">
+        <Link to="/who">Who</Link>
+        <Link to="/cv">CV</Link>
+        <Link to="/projects">Projects</Link>
       </nav>
     </div>
   );
