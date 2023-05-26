@@ -1,6 +1,6 @@
 import './App.css';
 import {
-  createBrowserRouter,
+  createHashRouter,
   RouterProvider,
 } from "react-router-dom";
 import Header from './components/Header'
@@ -13,22 +13,23 @@ import NotFound from './components/NotFound'
 const routes = [
   {
     path: "/",
-    name: "Who",
     element: renderPage(<Who />, true),
     errorElement: <NotFound />
   },
   {
+    path: "/who",
+    element: renderPage(<Who />, true),
+  },
+  {
     path: "/cv",
-    name: "CV",
     element: renderPage(<Curriculum />, false),
   },
   {
     path: "/projects",
-    name: "Projects",
     element: renderPage(<Projects />, true),
   }
 ]
-const router = createBrowserRouter(routes);
+const router = createHashRouter(routes);
 
 export default function App() {
   return (

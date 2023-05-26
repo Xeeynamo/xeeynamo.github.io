@@ -8,7 +8,7 @@ export default function Header(data) {
       <h1>{me.name}</h1>
       <h2>{me.title}</h2>
       <nav key="routes">
-        <Link to="/">Who</Link>
+        <Link to="/who">Who</Link>
         <Link to="/cv">CV</Link>
         <Link to="/projects">Projects</Link>
       </nav>
