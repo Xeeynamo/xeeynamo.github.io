@@ -14,7 +14,7 @@ const routes = [
   {
     path: "/",
     element: renderPage(<Who />, true),
-    errorElement: <NotFound />
+    errorElement: renderPage(<NotFound />, true),
   },
   {
     path: "/who",
