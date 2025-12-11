@@ -1,18 +1,112 @@
 const projects = [
   {
     "id": "sotn-decomp",
-    "name": "SOTN decomp",
+    "name": "SOTN Decomp",
     "links": [
       {
-        "name": "page",
+        "name": "progress",
         "url": "https://sotn.xee.dev/"
       },
       {
         "name": "source",
-        "url": "https://github.com/xeeynamo/sotn-decomp"
-      },
+        "url": "https://github.com/Xeeynamo/sotn-decomp"
+      }
     ],
-    "description": "A work-in-progress decompilation in C of the videogame Castlevania: Symphony of the Night for PlayStation 1. The source code rebuilds into the same binaries of the original videogame by assuming what the original developers originally wrote. The code is tweaked until the compiler produces the same binary byte-for-byte. Once complete, the project aims to open the pandora's box for technical knowledge, moddings, spin-offs and new games. A prominent example is that it is now possible to port <a href=\"https://twitter.com/xeeynamo/status/1641117477617778688\">stages from different games</a> into Castlevania."
+    "description": "A matching decompilation of Castlevania: Symphony of the Night recreating the original source code through static and dynamic analysis. Supports multiple game builds, re-releases and console ports in a unified codebase, orchestrated by complex tooling and backed by open-source community projects. With 800+ stars and 50+ contributors, it has become a collaborative effort using tools like decomp.me for function matching. The decompiled code compiles byte-for-byte to identical binaries, enabling modding such as <a href=\"https://twitter.com/xeeynamo/status/1641117477617778688\">cross-game stage porting</a> and <a href=\"https://www.resetera.com/threads/playable-maria-hacked-into-castlevania-symphony-of-the-night.1236699/\">custom playable characters</a>. This project also helped bootstrap other PS1-related decompilation efforts."
+  },
+  {
+    "id": "kingdom-save-editor",
+    "name": "Kingdom Save Editor",
+    "links": [
+      {
+        "name": "page",
+        "url": "https://kingdomsaveeditor.xee.dev/"
+      },
+      {
+        "name": "source",
+        "url": "https://github.com/Xeeynamo/KingdomSaveEditor"
+      }
+    ],
+    "description": "A multi-platform save editor supporting Kingdom Hearts I through III, Final Fantasy VII Remake, and Persona 5 (Royal). Built with .NET Core and WPF, it runs on Windows, Linux, and Steam Deck via Proton. The project garnered 233 stars and 12 contributors, covering save formats across PS2, PS3, PS4, PSP, 3DS, and PC platforms for multiple regional releases. The project is archived as it is considered feature-complete."
+  },
+  {
+    "id": "gobindiff",
+    "name": "gobindiff",
+    "links": [
+      {
+        "name": "AUR package",
+        "url": "https://aur.archlinux.org/packages/gobindiff"
+      },
+      {
+        "name": "source",
+        "url": "https://github.com/Xeeynamo/gobindiff"
+      }
+    ],
+    "description": "A cross-platform TUI for comparing binary files in hexadecimal format with highlighted differences. Designed as a modern replacement for vbindiff, it handles files larger than 4GB with minimal footprint (under 3MB executable, ~11MB RAM for 20GB+ files comparison). Compares up to three files concurrently. Written in Go, usable as a standalone CLI tool or as a downloadable module for any Go application. Available on the Arch User Repository."
+  },
+  {
+    "id": "xe-binarymapper",
+    "name": "Xe.BinaryMapper",
+    "links": [
+      {
+        "name": "NuGet",
+        "url": "https://www.nuget.org/packages/Xe.BinaryMapper/"
+      },
+      {
+        "name": "docs",
+        "url": "https://xee.dev/Xe.BinaryMapper/"
+      },
+      {
+        "name": "source",
+        "url": "https://github.com/Xeeynamo/Xe.BinaryMapper"
+      }
+    ],
+    "description": "A standalone .NET library for mapping binary streams to C# objects. Supports primitives, enums, strings, arrays, nested classes, and bit-level boolean packing. Features configurable byte ordering, custom text encodings, and flexible offset/stride control via attributes. With 19K+ downloads on NuGet, it powers projects like OpenKH and Kingdom Save Editor. Compatible with .NET Framework 3.5+, .NET Standard 2.0, and Mono runtimes including Unity3D."
+  },
+  {
+    "id": "mipsdump",
+    "name": "mipsdump",
+    "links": [
+      {
+        "name": "source",
+        "url": "https://github.com/Xeeynamo/mipsdump"
+      }
+    ],
+    "description": "A MIPS-I disassembler that produces assembly code recompilable with GNU AS. Built as a replacement for objdump, it generates cleaner output with automatic label detection from branches and jumps, and supports importing user-defined labels from IDA databases. Written entirely in F# using pure functional programming, demonstrating how complex business logic can be expressed concisely. Compatible with PlayStation 1 processors."
+  },
+  {
+    "id": "ffxv",
+    "name": "FFXV EXML/XMB2 Research",
+    "links": [
+      {
+        "name": "docs",
+        "url": "https://github.com/Xeeynamo/ffxv/blob/master/docs/index.md"
+      },
+      {
+        "name": "source",
+        "url": "https://github.com/Xeeynamo/ffxv"
+      }
+    ],
+    "description": "Reverse engineering research on Final Fantasy XV's file formats, primarily XMB2: a binary-encoded XML format that drives the game's business logic through a node system. The documentation covers package structures, archive formats, and texture specifications. This research enabled modifications of cutscenes, events, and effects, and contributed to the development of <a href=\"https://github.com/Kizari/Flagrum/\">Flagrum</a>, a comprehensive modding tool created years later."
+  },
+  {
+    "id": "rsdk",
+    "name": "RSDK Reverse Engineering",
+    "links": [
+      {
+        "name": "vscode extension",
+        "url": "https://marketplace.visualstudio.com/items?itemName=xeeynamo.rsdk-script"
+      },
+      {
+        "name": "gamebanana",
+        "url": "https://gamebanana.com/tools/6437"
+      },
+      {
+        "name": "source",
+        "url": "https://github.com/Xeeynamo/RSDK"
+      }
+    ],
+    "description": "Tools and documentation for Christian Whitehead's Retro-SDK, covering versions from Retro Sonic through Sonic Mania. Includes a sprite animation editor used for six years by modders to create custom characters, and a bytecode disassembler from 2012 that became foundational for later full decompilations of Sonic 1, 2, and CD by other authors. Complemented by a <a href=\"https://github.com/Xeeynamo/vscode-rsdk\">VS Code extension</a> providing syntax highlighting for decompiled scripts."
   },
   {
     "id": "openkh",
@@ -24,10 +118,10 @@ const projects = [
       },
       {
         "name": "source",
-        "url": "https://github.com/Xeeynamo/OpenKh"
+        "url": "https://github.com/OpenKH/OpenKh"
       }
     ],
-    "description": "Centralises all the technical knowledge of the videogame series Kingdom Hearts providing documentation, tools, code libraries and the foundation to mod and expand the original commercial games. Developed in C# using the latest iteration of .NET. Includes the OpenKH Engine, which simulates the original game behavior using untransformed game assets. Features the OpenKH Mods Manager for loading <a href=\"https://twitter.com/xeeynamo/status/1379858976494456832\">different mods</a> without overwriting the original game files."
+    "description": "A comprehensive modding framework for Kingdom Hearts, centralizing documentation, tools, and code libraries. Features 50+ specialized editors for models, animations, maps, and battle systems. The Mods Manager enables loading modifications without overwriting game files, supporting PC ports from the Epic Games Store and Steam as well as PS2 versions. With 365 stars, 57 contributors, and 861 releases, it has become the standard toolset for Kingdom Hearts modding."
   },
   {
     "id": "swords-of-calengal",
@@ -42,217 +136,14 @@ const projects = [
         "url": "https://www.youtube.com/watch?v=q8Ka9LjGZ64"
       }
     ],
-    "description": "A 2D action-rpg inspired by old-school games of the SNES era. Developed using modern technologies. Created by a team of four people, with me being the sole developer. Winner of multiple awards, including Best Game at Modena Nerd 2017 and Best Technical Game at Svilupparty 2017, featured in the Italian videogame magazine The Games Machine. Development halted when two team members left."
-  },
-  {
-    "id": "xeengine",
-    "name": "XeEngine",
-    "links": [
-      {
-        "name": "source",
-        "url": "https://github.com/XeEngine"
-      }
-    ],
-    "description": "A cross-platform game engine focused on running on low-budget hardware using hardware rendering. Primarily designed for 2D games and basic 3D graphics. It implements graphics effects inspired by games like Sonic the Hedgehog 2 and Castlevania: Symphony of the Night, including features like palette, multi-layer tilemap rendering, and parallax using line scrolling."
-  },
-  {
-    "id": "sonic-psvita",
-    "name": "Sonic the Hedgehog PS Vita ports",
-    "links": [
-      {
-        "name": "sonic cd",
-        "url": "https://vitadb.rinnegatamante.it/#/info/604"
-      },
-      {
-        "name": "sonic 1&2",
-        "url": "https://store.brewology.com/vita/ahomebrew.php?brewid=895"
-      },
-    ],
-    "description": "Ports of Sonic the Hedgehog CD, 1 and 2 on PlayStation Vita using the open-source decompilation of the three games."
-  },
-  {
-    "id": "ffxv",
-    "name": "FFXV EXML/XMB2 research",
-    "links": [
-      {
-        "name": "page",
-        "url": "https://github.com/Xeeynamo/ffxv/blob/master/docs/index.md"
-      },
-      {
-        "name": "source",
-        "url": "https://github.com/Xeeynamo/ffxv"
-      }
-    ],
-    "description": "Research on the XMB2 format used in Final Fantasy XV, a binary-encoded XML file that determines the game's business logic via a node system. Reverse engineering the format allowed for modifications of cutscenes, events, triggers, and effects. The research contributed to the development of the modding tool called <a href=\"https://github.com/Kizari/Flagrum/\">Flagrum</a>, created years later."
-  },
-  {
-    "id": "vscode-rsdk",
-    "name": "Visual Studio Code RSDK extension",
-    "links": [
-      {
-        "name": "extension",
-        "url": "https://marketplace.visualstudio.com/items?itemName=xeeynamo.rsdk-script"
-      },
-      {
-        "name": "source",
-        "url": "https://github.com/Xeeynamo/vscode-rsdk"
-      }
-    ],
-    "description": "Provides syntax highlighting for reversed engineered scripts from commercial RSDK ports of Sonic the Hedgehog. Used by game modders to create or modify the game's code."
-  },
-  {
-    "id": "sonic-hybrid-rsdk",
-    "name": "Sonic Hybrid RSDK",
-    "links": [
-      {
-        "name": "source",
-        "url": "https://github.com/Xeeynamo/sonic-hybrid-rsdk"
-      }
-    ],
-    "description": "Combines Sonic the Hedgehog 1, Sonic the Hedgehog CD, and Sonic the Hedgehog 2 into a single game. Allows for the selection and porting of components from Sonic 1 or Sonic 2 across the three games. Released as an open-source tool to programmatically generate the mod. Inspired by the mod <a href=\"https://info.sonicretro.org/Sonic_Delta\">Sonic Delta</a>."
-  },
-  {
-    "id": "xe-binarymapper",
-    "name": "Xe.BinaryMapper",
-    "links": [
-      {
-        "name": "page",
-        "url": "https://www.nuget.org/packages/Xe.BinaryMapper/"
-      },
-      {
-        "name": "source",
-        "url": "https://github.com/Xeeynamo/Xe.BinaryMapper"
-      }
-    ],
-    "description": ".NET library for serializing and deserializing binary files using C# class declarations. Fast, easy to use, and does not require additional dependencies. Has been downloaded more than 10k times from NuGet."
-  },
-  {
-    "id": "rsdk-reverse-and-tools",
-    "name": "RSDK reverse and tools",
-    "links": [
-      {
-        "name": "gamebanana",
-        "url": "https://gamebanana.com/tools/6437"
-      },
-      {
-        "name": "source",
-        "url": "https://github.com/Xeeynamo/RSDK"
-      }
-    ],
-    "description": "Sprite animation editor for the videogames Sonic Mania, Sonic 1, Sonic 2, Sonic CD, Sonic Nexus, Sonic XG, and Retro Sonic. Used for 6 years by multiple videogame modders to create custom playable characters in Sonic Mania. The repository also includes an RSDK script decompiler, which was a breakthrough discovery used four years later to fully decompile Sonic 1, Sonic 2, and Sonic CD by a different author."
-  }, {
-    "id": "psndb",
-    "name": "PSN DB",
-    "links": [
-      {
-        "name": "twitter bot",
-        "url": "https://twitter.com/psnrelease2"
-      },
-      {
-        "name": "source",
-        "url": "https://github.com/Xeeynamo/psndb"
-      }
-    ],
-    "description": "Spider that fetches and publishes upcoming new game releases and updates from the PlayStation Store. Able to detect game titles before their official announcement. Received press coverage and stored scraped data in an openly readable database for preservation. Shut down due to  Elon Musk puting the Twitter Developer API behind a paywall."
-  },
-  {
-    "id": "piupsp-tools",
-    "name": "Pump It UP Exceed/Zero tools",
-    "links": [
-      {
-        "name": "source",
-        "url": "https://github.com/Xeeynamo/piupsp-tools"
-      }
-    ],
-    "description": "Allows for the downgrade of custom and official charts to the Exceed/Zero engine for a portable experience on-the-go."
-  },
-  {
-    "id": "kingdom-save-editor",
-    "name": "Kingdom Save Editor",
-    "links": [
-      {
-        "name": "source",
-        "url": "https://github.com/Xeeynamo/KingdomSaveEditor"
-      }
-    ],
-    "description": "Multi-purpose videogame save editor written in .NET Core with WPF. It runs on Linux and Steam Deck with Proton. Supports save editing of Kingdom Hearts, Final Fantasy VII Remake, Persona 5 (Royal), and Persona 3 (FES/Portable). Abandoned due to the overwhelming effort of adding new games and the choice of technology."
-  },
-  {
-    "id": "mipsdump",
-    "name": "mipsdump",
-    "links": [
-      {
-        "name": "source",
-        "url": "https://github.com/Xeeynamo/mipsdump"
-      }
-    ],
-    "description": "A MIPS-1 disassembler that produces recompilable assembly code. Built as a replacement for GNU objdump, enabling recompiling the output with GNU AS. Written entirely in F# using pure functional programming. Notable achievement in fitting a significant amount of business logic into a clear and concise codebase."
-  },
-  {
-    "id": "ffmpeg-optimised",
-    "name": "ffmpeg optimised",
-    "links": [
-      {
-        "name": "source",
-        "url": "https://github.com/Xeeynamo/ffmpeg-gcc-latest/blob/main/.github/workflows/build.yml"
-      }
-    ],
-    "description": "Compiler rules to build a more performant version of ffmpeg for encoding audio files into specific formats. Used during my time at 7digital and resulted in a 15% improvement encoding throughput in production."
-  },
-  {
-    "id": "khlua",
-    "name": "khlua",
-    "links": [
-      {
-        "name": "source",
-        "url": "https://github.com/Xeeynamo/khlua"
-      }
-    ],
-    "description": "Decompiled and recompilable code from Kingdom Hearts: Birth By Sleep in LUA."
-  },
-  {
-    "id": "einhander",
-    "name": "Einhander unpacker",
-    "links": [
-      {
-        "name": "source",
-        "url": "https://github.com/Xeeynamo/einhander"
-      }
-    ],
-    "description": "Game data unpacker for the commercial videogame Einhander for PlayStation 1."
-  },
-  {
-    "id": "s3kse",
-    "name": "Sonic 3 & Knuckles Save Editor",
-    "links": [
-      {
-        "name": "source",
-        "url": "https://github.com/Xeeynamo/S3KSE"
-      }
-    ],
-    "description": "A save game data editor for Sonic & Knuckles Collection, enabling editing of save files."
-  },
-  {
-    "id": "megaedx",
-    "name": "MegaEdX",
-    "links": [
-      {
-        "name": "romhacking.net",
-        "url": "https://www.romhacking.net/utilities/1039/"
-      },
-      {
-        "name": "source",
-        "url": "https://github.com/Xeeynamo/MegaEdX"
-      }
-    ],
-    "description": "A level editor for the commercial videogame MegaMan X for Super Nintendo. Iterated and enhanced to support MegaMan X2 and MegaMan X3 by different authors."
+    "description": "A 2D action-RPG inspired by 16-bit SNES classics, built on the custom XeEngine with all assets created from scratch. Developed by a four-person team at United Lines Studio, with sole programming responsibility. Winner of Best Game at Modena Nerd 2017 and Best Technical Game at Svilupparty 2017, and featured in the Italian magazine The Games Machine. Development paused when team members departed."
   },
   {
     "id": "re-sonic",
     "name": "RE: Sonic the Hedgehog",
     "links": [
       {
-        "name": "blog post",
+        "name": "sonic retro post",
         "url": "https://forums.sonicretro.org/index.php?threads/re-sonic-discontinued.36846/"
       },
       {
@@ -260,40 +151,7 @@ const projects = [
         "url": "https://github.com/Xeeynamo/RESonic"
       }
     ],
-    "description": "A recreation of Sonic the Hedgehog 1 using modern 2D techniques and pixel art redrawn at 2x the original size. Aimed to be as accurate as possible to the original experience, both visually and in gameplay. Abandoned when Sega announced their Sonic the Hedgehog 1 remake by Christian Whitehead."
-  },
-  {
-    "id": "dark-cloud-unpacker-repacker",
-    "name": "Dark Cloud unpacker/repacker",
-    "links": [
-      {
-        "name": "source",
-        "url": "https://github.com/Xeeynamo/DarkCloud"
-      }
-    ],
-    "description": "Tools for unpacking and repacking the game assets of Dark Cloud for PlayStation 2."
-  },
-  {
-    "id": "vitareg",
-    "name": "VitaReg",
-    "links": [
-      {
-        "name": "source",
-        "url": "https://github.com/Xeeynamo/VitaReg"
-      }
-    ],
-    "description": "Tool used to modify the registry of the PlayStation Vita video game console."
-  },
-  {
-    "id": "kingdomheartspatch",
-    "name": "KingdomHeartsPatch",
-    "links": [
-      {
-        "name": "source",
-        "url": "https://github.com/Xeeynamo/KingdomHeartsPatch"
-      }
-    ],
-    "description": "A set of older tools used to create translation patches in Italian and English for the game Kingdom Hearts II: Final Mix."
+    "description": "A from-scratch recreation of Sonic the Hedgehog 1 and 2 with 2x enhanced pixel art, sub-pixel camera movement, animated palettes, and improved parallax effects. Built in C++ with OpenGL using libXeEngine, featuring a built-in level editor and cross-platform support. Received positive community reception on Sonic Retro forums. Discontinued in 2017 following Sega's announcement of the official Christian Whitehead remakes."
   }
 ];
 

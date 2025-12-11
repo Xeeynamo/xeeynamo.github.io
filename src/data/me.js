@@ -15,22 +15,10 @@ const header = {
       "isExtraLink": false
     },
     {
-      "name": "Twitter",
-      "icon": "twitter",
-      "url": "https://twitter.com/xeeynamo",
-      "isExtraLink": true
-    },
-    {
       "name": "Mail",
       "icon": "email",
       "url": "mailto:portfolio@xee.dev",
       "isExtraLink": false
-    },
-    {
-      "name": "YouTube",
-      "icon": "youtube",
-      "url": "https://youtube.com/xeeynamo",
-      "isExtraLink": true
     },
   ]
 };
