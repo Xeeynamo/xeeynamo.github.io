@@ -5,7 +5,8 @@ import projects from '../data/prjs'
 export default function Home() {
   return (
     <div className="Home">
-      <section id="about">
+      <article id="about">
+        <h1>About</h1>
         <p>
           Software engineer specializing in backend systems, Linux, and scalable services.
           Polyglot developer working across C, C#, Go, JavaScript, and Python.
@@ -14,12 +15,12 @@ export default function Home() {
           I approach problems from the ground up—hardware architecture, assembly, and system internals—to see the bigger picture.
           This perspective drives my open-source <a href="#projects">projects</a>, turning low-level insights into useful tools.
         </p>
-      </section>
+      </article>
 
-      <section id="work">
+      <article id="work">
         <h1>Work</h1>
         {cv.experience.map(exp => (
-          <div className="Experience" key={exp.name}>
+          <section className="Experience" key={exp.name}>
             <h2>
               <span className="date">{exp.start} - {exp.end ?? "Present"}:</span>
               <span className="name"> {exp.name},</span>
@@ -31,17 +32,17 @@ export default function Home() {
                 <li key={index}>{point}</li>
               ))}
             </ul>
-          </div>
+          </section>
         ))}
-      </section>
+      </article>
 
-      <section id="projects">
+      <article id="projects">
         <h1>Projects</h1>
         <p className="Projects-intro">
           15 years of non-profit work, free for everyone. Support via <a href="https://github.com/sponsors/Xeeynamo">GitHub Sponsors</a>.
         </p>
         {projects.map(project => (
-          <div className="Project" key={project.id}>
+          <section className="Project" key={project.id}>
             <h2>{project.name}</h2>
             {project.links?.length > 0 && (
               <div className="Project-links">
@@ -51,9 +52,9 @@ export default function Home() {
               </div>
             )}
             <p dangerouslySetInnerHTML={{ __html: project.description }} />
-          </div>
+          </section>
         ))}
-      </section>
+      </article>
     </div>
   )
 }
