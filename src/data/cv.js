@@ -89,20 +89,6 @@ const cv = {
       ]
     },
   ],
-  "skills": [
-    {
-      "name": "languages",
-      "values": ["C", "C#", "Go", "Python", "JavaScript"]
-    },
-    {
-      "name": "infrastructure",
-      "values": ["AWS", "GCP", "Docker", "Kubernetes", "Terraform"]
-    },
-    {
-      "name": "storage",
-      "values": ["PostgreSQL", "Redis", "DynamoDB"]
-    }
-  ],
 }
 
 export default cv;
