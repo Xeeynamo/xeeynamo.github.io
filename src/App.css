@@ -12,6 +12,10 @@ a {
   color: #0867fd;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
 .AppContent {
   display: block;
   margin-left: auto;
