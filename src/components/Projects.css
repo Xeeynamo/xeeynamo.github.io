@@ -1,11 +1,28 @@
-.Project>h2 {
-  margin-top: 2em;
+.Projects-intro {
+  color: #666;
 }
 
-.Project>h3 {
+.Project>h2 {
+  margin-top: 1.5em;
+  margin-bottom: 0.25em;
+}
+
+.Project-links {
   font-weight: normal;
 }
 
-.Project>h3>a {
-  margin-right: 1em;
+.Project-link {
+  display: inline-block;
+  padding: 0.25em 0.6em;
+  margin-right: 0.5em;
+  font-size: 0.85em;
+  background: #f8f8f8;
+  border-radius: 4px;
+  transition: background 0.15s ease;
 }
+
+.Project-link:hover {
+  background: #f0f0f0;
+  text-decoration: none;
+}
+

@@ -15,18 +15,13 @@
 }
 
 .Header>h2 {
-  font-size: normal;
   font-weight: normal;
 }
 
 nav {
-  font-size: normal;
-  font-weight: normal;
-  margin: 1.5vw;
+  margin: 1.5em 0;
 }
 
 nav>a {
-  font-size: normal;
-  font-weight: normal;
-  margin: 1.25vw;
+  margin: 0 1em;
 }
