@@ -26,7 +26,6 @@ function Experience(data) {
         <span className="location"> {ex.location}</span>
       </h2>
       <h3 className='title'> {ex.title} </h3>
-      <div className='description'> {ex.description} </div>
       <ul>
         {ex.bulletPoints?.map(bp => (
           <li>{bp}</li>
