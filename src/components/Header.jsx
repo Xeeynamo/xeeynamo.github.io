@@ -1,6 +1,5 @@
 import './Header.css'
 import me from '../data/me'
-import { Link } from 'react-router-dom'
 
 export default function Header() {
   return (
@@ -13,9 +12,9 @@ export default function Header() {
         ))}
       </nav>
       <nav>
-        <Link to="/who">Who</Link>
-        <Link to="/cv">CV</Link>
-        <Link to="/projects">Projects</Link>
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#projects">Projects</a>
       </nav>
     </div>
   );

@@ -1,3 +1,13 @@
+section {
+  margin-bottom: 3em;
+}
+
+/* CV styles */
+.Experience>h2>.location {
+  font-weight: normal;
+}
+
+/* Projects styles */
 .Projects-intro {
   color: #666;
 }
@@ -25,4 +35,3 @@
   background: #f0f0f0;
   text-decoration: none;
 }
-
