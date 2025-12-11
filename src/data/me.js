@@ -1,26 +1,11 @@
-const header = {
-  "name": "Luciano Ciccariello",
-  "title": "Software Engineer",
-  "links": [
-    {
-      "name": "GitHub",
-      "icon": "github",
-      "url": "https://github.com/xeeynamo",
-      "isExtraLink": false
-    },
-    {
-      "name": "LinkedIn",
-      "icon": "linkedin",
-      "url": "https://linkedin.com/in/luciano-ciccariello",
-      "isExtraLink": false
-    },
-    {
-      "name": "Mail",
-      "icon": "email",
-      "url": "mailto:portfolio@xee.dev",
-      "isExtraLink": false
-    },
+const me = {
+  name: "Luciano Ciccariello",
+  title: "Software Engineer",
+  links: [
+    { name: "GitHub", url: "https://github.com/xeeynamo" },
+    { name: "LinkedIn", url: "https://linkedin.com/in/luciano-ciccariello" },
+    { name: "Mail", url: "mailto:portfolio@xee.dev" },
   ]
 };
 
-export default header;
+export default me;
