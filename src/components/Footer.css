@@ -1,3 +1,91 @@
 .Footer {
-  padding-top: 1vw;
+  padding-top: 20px;
+}
+
+.Footer-badges {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background: linear-gradient(135deg, #C0C0C0 0%, #808080 100%);
+  border: 3px outset #FFFFFF;
+  padding: 3px;
+  box-shadow: 3px 3px 0px #000000;
+}
+
+.badge-inner {
+  background: linear-gradient(135deg, #0000FF 0%, #000080 100%);
+  color: #FFFFFF;
+  padding: 6px 12px;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 11px;
+  border: 1px solid #FFFFFF;
+  letter-spacing: 1px;
+}
+
+.Footer-copyright {
+  margin-bottom: 15px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.blink-slow {
+  animation: blink 2s step-start infinite;
+  color: #FF0000;
+}
+
+.Footer-webring {
+  background: linear-gradient(90deg, #FF00FF, #00FFFF, #FF00FF);
+  border: 3px ridge #FFFFFF;
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.webring-title {
+  font-weight: bold;
+  font-size: 18px;
+  color: #000000;
+  text-shadow: 1px 1px 0px #FFFFFF;
+  margin-bottom: 10px;
+}
+
+.webring-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.webring-link {
+  background: #FFFF00;
+  color: #000080;
+  padding: 5px 12px;
+  border: 2px outset #FFD700;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 2px 2px 0px #000000;
+}
+
+.webring-link:hover {
+  background: #00FF00;
+  border: 2px inset #00FF00;
+}
+
+.webring-sep {
+  color: #000000;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.Footer-lastupdate {
+  margin-top: 15px;
+  font-size: 11px;
+  font-family: 'Courier New', monospace;
+  color: #000080;
 }

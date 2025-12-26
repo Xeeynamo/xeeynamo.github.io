@@ -1,37 +1,103 @@
+article {
+  margin-bottom: 2em;
+  padding: 20px;
+  background: linear-gradient(135deg, #FFE4E1 0%, #E0FFFF 100%);
+  border: 4px double #FF00FF;
+  box-shadow: 5px 5px 0px #000080;
+}
+
+article h1 {
+  color: #FF0000;
+  text-shadow: 2px 2px 0px #FFFF00;
+  border-bottom: 3px dotted #00FF00;
+  padding-bottom: 10px;
+  font-size: 32px;
+}
+
 section {
-  margin-bottom: 3em;
+  margin-bottom: 2em;
+  padding: 15px;
+  background: #FFFACD;
+  border: 2px solid #FF69B4;
 }
 
 /* CV styles */
-.Experience>h2>.location {
+.Experience h2 {
+  color: #0000FF;
+  font-size: 18px;
+  background: linear-gradient(90deg, #FFFF00, #00FFFF);
+  padding: 8px;
+  border: 2px outset #FFD700;
+  margin-bottom: 10px;
+}
+
+.Experience h2 .date {
+  color: #FF0000;
+  font-weight: bold;
+}
+
+.Experience h2 .location {
   font-weight: normal;
+  color: #008000;
+}
+
+.Experience h3 {
+  color: #800080;
+  font-style: italic;
+}
+
+.Experience ul {
+  background: #FFFFFF;
+  border: 2px inset #C0C0C0;
+  padding: 15px 15px 15px 35px;
 }
 
 /* Projects styles */
 .Projects-intro {
-  color: #666;
+  color: #FF0000;
+  font-weight: bold;
+  background: #FFFF00;
+  padding: 10px;
+  border: 2px dashed #FF00FF;
+  text-align: center;
 }
 
-.Project>h2 {
-  margin-top: 1.5em;
-  margin-bottom: 0.25em;
+.Project {
+  background: #E0FFE0;
+  padding: 15px;
+  margin: 15px 0;
+  border: 3px groove #00FF00;
+}
+
+.Project h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #FF00FF;
+  font-size: 22px;
+  text-decoration: underline;
 }
 
 .Project-links {
   font-weight: normal;
+  margin-bottom: 10px;
 }
 
 .Project-link {
   display: inline-block;
-  padding: 0.25em 0.6em;
-  margin-right: 0.5em;
-  font-size: 0.85em;
-  background: #f8f8f8;
-  border-radius: 4px;
-  transition: background 0.15s ease;
+  padding: 6px 12px;
+  margin-right: 8px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  background: linear-gradient(180deg, #FFA500, #FF6347);
+  border: 2px outset #FF4500;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 2px 2px 0px #000000;
 }
 
 .Project-link:hover {
-  background: #f0f0f0;
+  background: linear-gradient(180deg, #00FF00, #00FFFF);
+  border: 2px inset #00FF00;
   text-decoration: none;
 }

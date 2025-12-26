@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="Home">
       <article id="about">
-        <h1>About</h1>
+        <h1>🌟 About 🌟</h1>
         <p>
           Software engineer specializing in backend systems, Linux, and scalable services.
           Polyglot developer working across C, C#, Go, JavaScript, and Python.
@@ -18,7 +18,7 @@ export default function Home() {
       </article>
 
       <article id="work">
-        <h1>Work</h1>
+        <h1>💼 Work Experience 💼</h1>
         {cv.experience.map(exp => (
           <section className="Experience" key={exp.name}>
             <h2>
@@ -37,9 +37,9 @@ export default function Home() {
       </article>
 
       <article id="projects">
-        <h1>Projects</h1>
+        <h1>🚀 Cool Projects 🚀</h1>
         <p className="Projects-intro">
-          15 years of non-profit work, free for everyone. Support via <a href="https://github.com/sponsors/Xeeynamo">GitHub Sponsors</a>.
+          ⭐ 15 YEARS of FREE SOFTWARE! ⭐ Support via <a href="https://github.com/sponsors/Xeeynamo">GitHub Sponsors</a> ⭐
         </p>
         {projects.map(project => (
           <section className="Project" key={project.id}>
@@ -55,6 +55,31 @@ export default function Home() {
           </section>
         ))}
       </article>
+
+      <div style={{
+        marginTop: '30px',
+        padding: '20px',
+        background: 'linear-gradient(45deg, #FFD700, #FFA500)',
+        border: '5px ridge #FF0000',
+        textAlign: 'center'
+      }}>
+        <div style={{
+          fontSize: '24px',
+          fontWeight: 'bold',
+          color: '#000000',
+          textShadow: '2px 2px 0px #FFFF00',
+          marginBottom: '10px'
+        }}>
+          🚧 ALWAYS UNDER CONSTRUCTION 🚧
+        </div>
+        <div style={{
+          fontSize: '14px',
+          color: '#FF0000',
+          fontWeight: 'bold'
+        }}>
+          This site is a living document - constantly evolving!
+        </div>
+      </div>
     </div>
   )
 }
