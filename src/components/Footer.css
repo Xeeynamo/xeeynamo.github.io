@@ -1,3 +1,81 @@
+/* Romantic Valentine's Footer */
+
 .Footer {
-  padding-top: 1vw;
+  background: linear-gradient(
+    90deg,
+    var(--valentine-hot-pink) 0%,
+    var(--valentine-red) 50%,
+    var(--valentine-hot-pink) 100%
+  );
+  background-size: 200% auto;
+  animation: shimmer 6s linear infinite;
+  border-top: 5px solid var(--valentine-white);
+  border-bottom: 5px solid var(--valentine-white);
+  padding: 0;
+  margin: 40px 0 0 0;
+  box-shadow:
+    0 -10px 30px rgba(255, 20, 147, 0.3),
+    inset 0 0 20px rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+
+/* Heart decorations on footer */
+.Footer::before {
+  content: '💖 💕 💗 💓 💝 💘 💞 ❤️';
+  display: block;
+  text-align: center;
+  font-size: 30px;
+  padding: 15px 0 10px 0;
+  animation: pulseHeart 2s infinite;
+  filter: drop-shadow(0 2px 5px rgba(255, 255, 255, 0.5));
+}
+
+.Footer hr {
+  display: none;
+}
+
+.FooterContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 20px 20px 20px;
+  margin: 0;
+  color: white;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  text-align: center;
+  line-height: 1.8;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.FooterContent a {
+  color: var(--valentine-white);
+  text-decoration: underline;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.FooterContent a:hover {
+  color: var(--valentine-gold);
+  text-shadow: 0 0 10px var(--valentine-gold);
+  text-decoration: none;
+}
+
+.FooterContent a:hover::before {
+  content: '✨ ';
+}
+
+.FooterContent a:hover::after {
+  content: ' ✨';
+}
+
+/* Cupid at the bottom */
+.FooterContent::after {
+  content: '👼 Made with 💖 Love & Code 💖 👼';
+  display: block;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  animation: rainbowGlow 3s infinite;
 }

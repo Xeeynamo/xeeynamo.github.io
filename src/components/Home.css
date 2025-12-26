@@ -1,37 +1,273 @@
+/* Valentine's Content Sections */
+
+.Home {
+  display: block;
+  position: relative;
+}
+
+/* Article containers with romantic styling */
+article {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 182, 193, 0.3) 100%
+  );
+  backdrop-filter: blur(10px);
+  border: 4px solid var(--valentine-hot-pink);
+  border-radius: 25px;
+  padding: 0;
+  margin-bottom: 40px;
+  box-shadow:
+    0 10px 40px rgba(255, 20, 147, 0.3),
+    inset 0 0 20px rgba(255, 255, 255, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floating hearts on article hover */
+article:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 15px 50px rgba(255, 20, 147, 0.5),
+    inset 0 0 30px rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+}
+
+/* Article title with hearts */
+article > h1 {
+  background: linear-gradient(
+    90deg,
+    var(--valentine-red),
+    var(--valentine-hot-pink),
+    var(--valentine-red)
+  );
+  color: white;
+  padding: 20px 30px;
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Brush Script MT', cursive;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 20px 20px 0 0;
+  position: relative;
+}
+
+article > h1::before {
+  content: '💝 ';
+  animation: pulseHeart 1.5s infinite;
+}
+
+article > h1::after {
+  content: ' 💝';
+  animation: pulseHeart 1.5s infinite 0.75s;
+}
+
+/* Content sections */
+article > p,
+article > section {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 25px;
+  margin: 20px;
+  border-radius: 15px;
+  border: 2px solid var(--valentine-light-pink);
+  box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+}
+
 section {
-  margin-bottom: 3em;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* Cupid decoration between sections */
+section::after {
+  content: '💘';
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+  animation: pulseHeart 2s infinite;
+  filter: drop-shadow(0 2px 5px rgba(255, 20, 147, 0.5));
+}
+
+section:last-child::after {
+  display: none;
+}
+
+section h2,
+section h3,
+section ul,
+section p {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0.8em 0;
+}
+
+section h2 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--valentine-red);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  text-shadow: 0 0 5px rgba(255, 20, 147, 0.3);
+}
+
+section h3 {
+  font-size: 1.1rem;
+  font-weight: normal;
+  font-style: italic;
+  color: var(--valentine-purple);
+  margin: 0.5em 0;
+}
+
+section ul {
+  margin-left: 2em;
+  padding-left: 0;
+}
+
+section li {
+  margin: 0.6em 0;
+  position: relative;
+  list-style: none;
+  padding-left: 30px;
+}
+
+/* Heart bullets for lists */
+section li::before {
+  content: '💕';
+  position: absolute;
+  left: 0;
+  font-size: 16px;
+  animation: pulseHeart 3s infinite;
+}
+
+section li:nth-child(2n)::before {
+  content: '💖';
+  animation-delay: 0.5s;
+}
+
+section li:nth-child(3n)::before {
+  content: '💗';
+  animation-delay: 1s;
 }
 
 /* CV styles */
-.Experience>h2>.location {
+.Experience > h2 > .location {
   font-weight: normal;
+  color: var(--valentine-purple);
+}
+
+.Experience > h2 > .date {
+  font-weight: bold;
+  color: var(--valentine-red);
+}
+
+.Experience > h2 > .name {
+  color: var(--valentine-hot-pink);
+  font-weight: bold;
 }
 
 /* Projects styles */
 .Projects-intro {
-  color: #666;
+  color: var(--valentine-red);
+  font-size: 1.1rem;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  text-align: center;
+  font-weight: 600;
 }
 
-.Project>h2 {
-  margin-top: 1.5em;
-  margin-bottom: 0.25em;
+.Project > h2 {
+  margin-top: 0;
+  margin-bottom: 1em;
+  font-size: 1.5rem;
 }
 
 .Project-links {
   font-weight: normal;
+  margin-bottom: 1em;
+  text-align: center;
 }
 
+/* Project links with sparkle effects */
 .Project-link {
   display: inline-block;
-  padding: 0.25em 0.6em;
-  margin-right: 0.5em;
-  font-size: 0.85em;
-  background: #f8f8f8;
-  border-radius: 4px;
-  transition: background 0.15s ease;
+  background: linear-gradient(
+    135deg,
+    var(--valentine-light-pink),
+    var(--valentine-hot-pink)
+  );
+  color: white;
+  padding: 10px 20px;
+  margin: 5px 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 20px;
+  border: 2px solid var(--valentine-white);
+  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.Project-link::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: shimmer 2s linear infinite;
 }
 
 .Project-link:hover {
-  background: #f0f0f0;
+  background: linear-gradient(
+    135deg,
+    var(--valentine-hot-pink),
+    var(--valentine-red)
+  );
+  transform: scale(1.15) rotate(-3deg);
+  box-shadow: 0 8px 20px rgba(255, 20, 147, 0.6);
   text-decoration: none;
+  color: white;
+}
+
+.Project-link:hover::after {
+  content: ' ✨';
+  animation: sparkle 0.6s ease;
+}
+
+.Project-link:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 8px rgba(255, 20, 147, 0.4);
+}
+
+/* Add sparkle trail on project link hover */
+@keyframes projectSparkle {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-20px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px) scale(0);
+  }
+}
+
+.Project-link:hover::before {
+  animation: shimmer 1s linear infinite, projectSparkle 1.5s ease infinite;
 }

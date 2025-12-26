@@ -1,32 +1,409 @@
+/* ULTRA FLASHY Romantic Valentine's Header */
+
 .Header {
-  margin-top: 4em;
-  margin-bottom: 4em;
-  padding: 2em;
+  margin: 2em auto;
+  padding: 0;
   text-align: center;
-  background-color: #faf8f6;
-  border-top: 1px solid #bbbab9;
-  border-bottom: 1px solid #bbbab9;
+  background: linear-gradient(
+    45deg,
+    var(--valentine-white) 0%,
+    var(--valentine-light-pink) 25%,
+    var(--valentine-hot-pink) 50%,
+    var(--valentine-purple) 75%,
+    var(--valentine-red) 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 5s ease infinite;
+  border: 8px solid;
+  border-image: linear-gradient(
+    45deg,
+    var(--valentine-red),
+    var(--valentine-hot-pink),
+    var(--valentine-purple),
+    var(--valentine-gold)
+  ) 1;
+  border-radius: 30px;
+  box-shadow:
+    0 0 60px rgba(255, 20, 147, 0.8),
+    0 0 100px rgba(255, 105, 180, 0.6),
+    inset 0 0 30px rgba(255, 255, 255, 0.5);
+  position: relative;
+  overflow: visible;
+  animation: headerPulse 3s ease-in-out infinite, gradientShift 5s ease infinite;
 }
 
-.Header>h1 {
-  font-size: xxx-large;
-  font-weight: normal;
+/* Animated gradient background */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Pulsing glow effect */
+@keyframes headerPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 60px rgba(255, 20, 147, 0.8),
+      0 0 100px rgba(255, 105, 180, 0.6),
+      inset 0 0 30px rgba(255, 255, 255, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow:
+      0 0 80px rgba(255, 20, 147, 1),
+      0 0 120px rgba(255, 105, 180, 0.8),
+      0 0 160px rgba(218, 112, 214, 0.5),
+      inset 0 0 40px rgba(255, 255, 255, 0.7);
+    transform: scale(1.02);
+  }
+}
+
+/* Flying/bouncing cupid decorations */
+.Header::before {
+  content: '👼';
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  font-size: 60px;
+  animation: cupidBounce 2s ease-in-out infinite, cupidRotate 4s linear infinite;
+  filter: drop-shadow(0 0 10px var(--valentine-gold));
+  z-index: 10;
+}
+
+.Header::after {
+  content: '👼';
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 60px;
+  animation: cupidBounce 2s ease-in-out infinite 1s, cupidRotate 4s linear infinite reverse;
+  filter: drop-shadow(0 0 10px var(--valentine-gold));
+  z-index: 10;
+}
+
+@keyframes cupidBounce {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.2);
+  }
+}
+
+@keyframes cupidRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Floating hearts around header */
+.Header {
+  /* Using a pseudo-element for floating hearts */
+}
+
+/* Create floating hearts layer */
+@keyframes floatingHeaderHearts {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) translateX(20px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Header Title - MAXIMUM FLASHY! */
+.Header > h1 {
+  font-size: 4rem;
+  font-weight: bold;
   margin: 0;
+  padding: 50px 20px 20px 20px;
+  font-family: 'Brush Script MT', 'Comic Sans MS', cursive;
+  background: linear-gradient(
+    90deg,
+    var(--valentine-red),
+    var(--valentine-hot-pink),
+    var(--valentine-gold),
+    var(--valentine-purple),
+    var(--valentine-hot-pink),
+    var(--valentine-red)
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 2s linear infinite, titleBounce 3s ease-in-out infinite;
+  position: relative;
+  filter: drop-shadow(0 0 20px rgba(255, 105, 180, 1));
 }
 
-.Header>h2 {
+@keyframes titleBounce {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.05) rotate(-1deg);
+  }
+}
+
+/* Animated hearts around title */
+.Header > h1::before {
+  content: '💖 ';
+  -webkit-text-fill-color: var(--valentine-red);
+  animation: heartSpin 2s infinite, pulseHeart 1.5s infinite;
+  display: inline-block;
+  filter: drop-shadow(0 0 15px var(--valentine-gold));
+}
+
+.Header > h1::after {
+  content: ' 💖';
+  -webkit-text-fill-color: var(--valentine-red);
+  animation: heartSpin 2s infinite reverse, pulseHeart 1.5s infinite 0.75s;
+  display: inline-block;
+  filter: drop-shadow(0 0 15px var(--valentine-gold));
+}
+
+@keyframes heartSpin {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(-15deg) scale(1.2);
+  }
+  75% {
+    transform: rotate(15deg) scale(1.2);
+  }
+}
+
+/* Sparkle explosion effect on title */
+.Header > h1 {
+  position: relative;
+}
+
+/* Subtitle with rainbow animation */
+.Header > h2 {
   font-weight: normal;
+  font-size: 1.8rem;
+  color: var(--valentine-red);
+  margin: 10px 0;
+  padding: 0 20px 20px 20px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  animation: rainbowGlow 3s infinite, subtitleFloat 4s ease-in-out infinite;
+  position: relative;
 }
 
+@keyframes subtitleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.Header > h2::before {
+  content: '✨ ';
+  animation: sparkle 1s infinite;
+  font-size: 1.5rem;
+}
+
+.Header > h2::after {
+  content: ' ✨';
+  animation: sparkle 1s infinite 0.5s;
+  font-size: 1.5rem;
+}
+
+/* Navigation with MEGA effects */
 nav {
-  margin: 1.5em 0;
+  margin: 0;
+  padding: 25px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 105, 180, 0.2),
+    rgba(255, 255, 255, 0.3)
+  );
+  background-size: 200% auto;
+  animation: shimmer 4s linear infinite;
+  backdrop-filter: blur(10px);
+  border-top: 3px solid var(--valentine-hot-pink);
+  position: relative;
 }
 
-nav>a {
-  margin: 0 0.75em;
+/* Continuous sparkle rain above nav */
+nav::before {
+  content: '✨ ⭐ ✨ 💫 ✨ ⭐ ✨ 💫 ✨';
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+  animation: sparkleRain 2s infinite;
+  pointer-events: none;
+  z-index: 100;
 }
 
+@keyframes sparkleRain {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+/* Hearts floating up from nav */
+nav::after {
+  content: '💕 💖 💗 💓 💝';
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+  animation: heartsFloatUp 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 100;
+}
+
+@keyframes heartsFloatUp {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(0) scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-20px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-40px) scale(1.5);
+  }
+}
+
+nav > a {
+  display: inline-block;
+  margin: 0 15px;
+  padding: 14px 28px;
+  background: linear-gradient(
+    135deg,
+    var(--valentine-hot-pink),
+    var(--valentine-red),
+    var(--valentine-purple)
+  );
+  background-size: 200% auto;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 30px;
+  border: 4px solid var(--valentine-white);
+  box-shadow:
+    0 5px 20px rgba(255, 20, 147, 0.5),
+    0 0 30px rgba(255, 105, 180, 0.4),
+    inset 0 -2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  animation: buttonGlow 2s ease-in-out infinite;
+}
+
+@keyframes buttonGlow {
+  0%, 100% {
+    box-shadow:
+      0 5px 20px rgba(255, 20, 147, 0.5),
+      0 0 30px rgba(255, 105, 180, 0.4),
+      inset 0 -2px 5px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 5px 25px rgba(255, 20, 147, 0.7),
+      0 0 40px rgba(255, 105, 180, 0.6),
+      0 0 60px rgba(218, 112, 214, 0.4),
+      inset 0 -2px 5px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Shimmer sweep across button */
+nav > a::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: shimmer 2s linear infinite;
+}
+
+nav > a:hover {
+  transform: scale(1.15) rotate(-3deg);
+  background-position: 100% 50%;
+  box-shadow:
+    0 10px 40px rgba(255, 20, 147, 0.8),
+    0 0 50px rgba(255, 105, 180, 0.7),
+    0 0 80px rgba(218, 112, 214, 0.5),
+    inset 0 -2px 10px rgba(0, 0, 0, 0.3);
+  animation: buttonBounce 0.5s ease infinite;
+  text-decoration: none;
+  color: white;
+}
+
+@keyframes buttonBounce {
+  0%, 100% {
+    transform: scale(1.15) rotate(-3deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(-3deg);
+  }
+}
+
+nav > a:hover::after {
+  content: ' 💕 ✨';
+  animation: sparkle 0.4s ease infinite;
+  position: absolute;
+  right: -30px;
+  top: -20px;
+  font-size: 25px;
+}
+
+nav > a:active {
+  transform: scale(1);
+  box-shadow:
+    0 2px 10px rgba(255, 20, 147, 0.4),
+    inset 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Hide separator */
 .nav-separator {
-  color: #bbbab9;
-  margin: 0 0.25em;
+  display: none;
 }
