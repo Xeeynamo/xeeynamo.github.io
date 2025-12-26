@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="Home">
       <article id="about">
-        <h1>About</h1>
+        <h1>🕷 About 🕷</h1>
         <p>
           Software engineer specializing in backend systems, Linux, and scalable services.
           Polyglot developer working across C, C#, Go, JavaScript, and Python.
@@ -18,7 +18,7 @@ export default function Home() {
       </article>
 
       <article id="work">
-        <h1>Work</h1>
+        <h1>🕸 Work Experience 🕸</h1>
         {cv.experience.map(exp => (
           <section className="Experience" key={exp.name}>
             <h2>
@@ -37,9 +37,9 @@ export default function Home() {
       </article>
 
       <article id="projects">
-        <h1>Projects</h1>
+        <h1>🎃 Haunted Projects 🎃</h1>
         <p className="Projects-intro">
-          15 years of non-profit work, free for everyone. Support via <a href="https://github.com/sponsors/Xeeynamo">GitHub Sponsors</a>.
+          💀 15 years of non-profit work, free for everyone 💀 Support via <a href="https://github.com/sponsors/Xeeynamo">GitHub Sponsors</a>
         </p>
         {projects.map(project => (
           <section className="Project" key={project.id}>

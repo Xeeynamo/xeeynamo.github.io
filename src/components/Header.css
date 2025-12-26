@@ -1,32 +1,193 @@
 .Header {
-  margin-top: 4em;
-  margin-bottom: 4em;
-  padding: 2em;
+  margin: 40px auto;
+  max-width: 900px;
+  padding: 60px 40px 40px;
   text-align: center;
-  background-color: #faf8f6;
-  border-top: 1px solid #bbbab9;
-  border-bottom: 1px solid #bbbab9;
+  background: linear-gradient(180deg, rgba(139, 0, 139, 0.3) 0%, rgba(20, 0, 20, 0.9) 100%);
+  border: 3px solid #8b008b;
+  box-shadow:
+    0 0 30px rgba(255, 102, 0, 0.4),
+    inset 0 0 30px rgba(139, 0, 139, 0.2);
+  position: relative;
+  overflow: hidden;
 }
 
-.Header>h1 {
-  font-size: xxx-large;
+.cobweb {
+  position: absolute;
+  top: -10px;
+  width: 120px;
+  height: 120px;
+  opacity: 0.6;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+.cobweb-left {
+  left: -10px;
+  background: radial-gradient(circle at 10% 10%,
+    transparent 5%,
+    rgba(200, 200, 200, 0.1) 5%, rgba(200, 200, 200, 0.1) 5.5%, transparent 5.5%,
+    transparent 10%,
+    rgba(200, 200, 200, 0.15) 10%, rgba(200, 200, 200, 0.15) 11%, transparent 11%
+  );
+}
+
+.cobweb-right {
+  right: -10px;
+  background: radial-gradient(circle at 90% 10%,
+    transparent 5%,
+    rgba(200, 200, 200, 0.1) 5%, rgba(200, 200, 200, 0.1) 5.5%, transparent 5.5%,
+    transparent 10%,
+    rgba(200, 200, 200, 0.15) 10%, rgba(200, 200, 200, 0.15) 11%, transparent 11%
+  );
+}
+
+.floating-bats {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  left: 0;
+  font-size: 30px;
+}
+
+.bat {
+  position: absolute;
+  animation: fly 15s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.bat:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.bat:nth-child(2) {
+  left: 50%;
+  animation-delay: 5s;
+}
+
+.bat:nth-child(3) {
+  left: 80%;
+  animation-delay: 10s;
+}
+
+@keyframes fly {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) translateX(30px) rotate(10deg);
+  }
+  50% {
+    transform: translateY(-10px) translateX(-20px) rotate(-10deg);
+  }
+  75% {
+    transform: translateY(-30px) translateX(10px) rotate(5deg);
+  }
+}
+
+.Header-skull {
+  font-size: 60px;
+  margin-bottom: 10px;
+  animation: pulse 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(255, 102, 0, 0.8));
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 10px rgba(255, 102, 0, 0.8));
+  }
+  50% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 20px rgba(255, 102, 0, 1));
+  }
+}
+
+.Header-title {
+  font-size: 48px;
+  font-weight: bold;
+  margin: 20px 0;
+  color: #ff8c00;
+  text-shadow:
+    0 0 10px rgba(255, 140, 0, 0.8),
+    0 0 20px rgba(139, 0, 139, 0.6),
+    3px 3px 5px rgba(0, 0, 0, 0.9);
+  animation: flicker 4s ease-in-out infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  45% { opacity: 1; }
+  50% { opacity: 0.8; }
+  55% { opacity: 1; }
+  60% { opacity: 0.9; }
+  65% { opacity: 1; }
+}
+
+.spooky-letter {
+  display: inline-block;
+  animation: ghostFloat 3s ease-in-out infinite;
+}
+
+@keyframes ghostFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.Header-subtitle {
+  font-size: 24px;
   font-weight: normal;
-  margin: 0;
+  color: #da70d6;
+  text-shadow: 0 0 10px rgba(218, 112, 214, 0.6);
+  margin: 10px 0 30px;
+  letter-spacing: 2px;
 }
 
-.Header>h2 {
-  font-weight: normal;
+.Header-nav {
+  margin: 30px 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
 }
 
-nav {
-  margin: 1.5em 0;
+.nav-link {
+  padding: 10px 20px;
+  background: rgba(139, 0, 139, 0.4);
+  border: 2px solid #8b008b;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  box-shadow: 0 0 10px rgba(139, 0, 139, 0.3);
 }
 
-nav>a {
-  margin: 0 0.75em;
+.nav-link:hover {
+  background: rgba(255, 102, 0, 0.4);
+  border-color: #ff6600;
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(255, 102, 0, 0.6);
 }
 
 .nav-separator {
-  color: #bbbab9;
-  margin: 0 0.25em;
+  color: #8b008b;
+  font-size: 20px;
+  margin: 0 10px;
+}
+
+.Header-warning {
+  margin-top: 20px;
+  color: #ff6600;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255, 102, 0, 0.8);
+  animation: blink 2s step-start infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0.3; }
 }
