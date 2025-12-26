@@ -6,6 +6,8 @@ on:
       - master
       - retro-90s
       - halloween-theme
+      - valentine
+      - win95
   schedule:
     # Run twice a month on 1st and 15th for retro easter egg
     - cron: "0 0 1,15 * *"
@@ -24,8 +26,20 @@ jobs:
           DAY=$(date +%d)
           MONTH=$(date +%m)
 
+          # Valentine's Day theme: Feb 7-14 (week of Valentine's Day)
+          if [ "$MONTH" = "02" ] && [ "$DAY" -ge "7" ] && [ "$DAY" -le "14" ]; then
+            echo "branch=valentine" >> $GITHUB_OUTPUT
+            echo "💖 Deploying romantic Valentine's Day theme!" >> $GITHUB_STEP_SUMMARY
+          # Windows 98 release: June 25, 1998
+          elif [ "$MONTH" = "06" ] && [ "$DAY" = "25" ]; then
+            echo "branch=win95" >> $GITHUB_OUTPUT
+            echo "🪟 Deploying Windows 95 theme for Windows 98 anniversary!" >> $GITHUB_STEP_SUMMARY
+          # Windows 95 release: August 24, 1995
+          elif [ "$MONTH" = "08" ] && [ "$DAY" = "24" ]; then
+            echo "branch=win95" >> $GITHUB_OUTPUT
+            echo "🪟 Deploying Windows 95 theme for Windows 95 anniversary!" >> $GITHUB_STEP_SUMMARY
           # Halloween theme: last week of October (Oct 25-31)
-          if [ "$MONTH" = "10" ] && [ "$DAY" -ge "25" ]; then
+          elif [ "$MONTH" = "10" ] && [ "$DAY" -ge "25" ]; then
             echo "branch=halloween-theme" >> $GITHUB_OUTPUT
             echo "🎃 Deploying spooky Halloween theme!" >> $GITHUB_STEP_SUMMARY
           # Retro 90s theme: 1st and 15th of each month
