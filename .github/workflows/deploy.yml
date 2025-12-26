@@ -5,10 +5,11 @@ on:
     branches:
       - master
       - retro-90s
+      - halloween-theme
   schedule:
     # Run twice a month on 1st and 15th for retro easter egg
     - cron: "0 0 1,15 * *"
-    # Run daily at midnight to ensure normal version is deployed
+    # Run daily at midnight to ensure correct version is deployed
     - cron: "0 0 * * *"
 
 jobs:
@@ -21,9 +22,17 @@ jobs:
         id: branch
         run: |
           DAY=$(date +%d)
-          if [ "$DAY" = "01" ] || [ "$DAY" = "15" ]; then
+          MONTH=$(date +%m)
+
+          # Halloween theme: last week of October (Oct 25-31)
+          if [ "$MONTH" = "10" ] && [ "$DAY" -ge "25" ]; then
+            echo "branch=halloween-theme" >> $GITHUB_OUTPUT
+            echo "🎃 Deploying spooky Halloween theme!" >> $GITHUB_STEP_SUMMARY
+          # Retro 90s theme: 1st and 15th of each month
+          elif [ "$DAY" = "01" ] || [ "$DAY" = "15" ]; then
             echo "branch=retro-90s" >> $GITHUB_OUTPUT
             echo "🎉 Deploying retro 90s easter egg!" >> $GITHUB_STEP_SUMMARY
+          # Normal version: all other days
           else
             echo "branch=master" >> $GITHUB_OUTPUT
             echo "📄 Deploying normal version" >> $GITHUB_STEP_SUMMARY
