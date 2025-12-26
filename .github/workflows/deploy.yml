@@ -4,8 +4,12 @@ on:
   push:
     branches:
       - master
+      - retro-90s
   schedule:
-    - cron: "0 0 1 * *"
+    # Run twice a month on 1st and 15th for retro easter egg
+    - cron: "0 0 1,15 * *"
+    # Run daily at midnight to ensure normal version is deployed
+    - cron: "0 0 * * *"
 
 jobs:
   deploy:
@@ -13,7 +17,21 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Determine which branch to deploy
+        id: branch
+        run: |
+          DAY=$(date +%d)
+          if [ "$DAY" = "01" ] || [ "$DAY" = "15" ]; then
+            echo "branch=retro-90s" >> $GITHUB_OUTPUT
+            echo "🎉 Deploying retro 90s easter egg!" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "branch=master" >> $GITHUB_OUTPUT
+            echo "📄 Deploying normal version" >> $GITHUB_STEP_SUMMARY
+          fi
+
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.branch.outputs.branch }}
 
       - uses: actions/setup-node@v4
         with:
