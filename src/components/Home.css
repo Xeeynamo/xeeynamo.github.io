@@ -1,37 +1,153 @@
+/* Windows 95 Content Panels */
+
+.Home {
+  display: block;
+}
+
+/* Article containers with window frame */
+article {
+  background: var(--win95-gray);
+  border-top: 2px solid var(--win95-highlight);
+  border-left: 2px solid var(--win95-highlight);
+  border-right: 2px solid var(--win95-shadow-dark);
+  border-bottom: 2px solid var(--win95-shadow-dark);
+  padding: 0;
+  margin-bottom: 20px;
+  box-shadow:
+    inset 1px 1px 0 var(--win95-gray-light),
+    inset -1px -1px 0 var(--win95-shadow);
+}
+
+/* Article title bars */
+article > h1 {
+  background: linear-gradient(90deg, var(--win95-titlebar) 0%, var(--win95-titlebar-gradient) 100%);
+  color: var(--win95-titlebar-text);
+  padding: 3px 8px;
+  margin: 0;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: left;
+}
+
+/* Content sections with inset borders */
+article > p,
+article > section {
+  background: #ffffff;
+  border-top: 2px solid var(--win95-shadow-dark);
+  border-left: 2px solid var(--win95-shadow-dark);
+  border-right: 2px solid var(--win95-highlight);
+  border-bottom: 2px solid var(--win95-highlight);
+  padding: 12px;
+  margin: 12px;
+  box-shadow:
+    inset 1px 1px 0 var(--win95-shadow),
+    inset -1px -1px 0 var(--win95-gray-light);
+}
+
 section {
-  margin-bottom: 3em;
+  margin-bottom: 0;
+}
+
+section h2,
+section h3,
+section ul,
+section p {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0.5em 0;
+}
+
+section h2 {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+section h3 {
+  font-size: 12px;
+  font-weight: normal;
+  font-style: italic;
+  margin: 0.25em 0;
+}
+
+section ul {
+  margin-left: 1.5em;
+  padding-left: 0;
+}
+
+section li {
+  margin: 0.25em 0;
+  font-size: 11px;
 }
 
 /* CV styles */
-.Experience>h2>.location {
+.Experience > h2 > .location {
   font-weight: normal;
+}
+
+.Experience > h2 > .date {
+  font-weight: bold;
+  color: var(--win95-gray-dark);
 }
 
 /* Projects styles */
 .Projects-intro {
-  color: #666;
+  color: var(--win95-text);
+  font-size: 11px;
 }
 
-.Project>h2 {
-  margin-top: 1.5em;
-  margin-bottom: 0.25em;
+.Project > h2 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
 }
 
 .Project-links {
   font-weight: normal;
+  margin-bottom: 0.5em;
 }
 
+/* Project links as Windows 95 buttons */
 .Project-link {
   display: inline-block;
-  padding: 0.25em 0.6em;
-  margin-right: 0.5em;
-  font-size: 0.85em;
-  background: #f8f8f8;
-  border-radius: 4px;
-  transition: background 0.15s ease;
+  background: var(--win95-button-face);
+  border: 2px solid;
+  border-top-color: var(--win95-highlight);
+  border-left-color: var(--win95-highlight);
+  border-right-color: var(--win95-shadow-dark);
+  border-bottom-color: var(--win95-shadow-dark);
+  padding: 4px 8px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  font-size: 11px;
+  color: var(--win95-text);
+  text-decoration: none;
+  box-shadow:
+    inset 1px 1px 0 var(--win95-gray-light),
+    inset -1px -1px 0 var(--win95-shadow);
+  cursor: pointer;
+  user-select: none;
 }
 
 .Project-link:hover {
-  background: #f0f0f0;
+  background: var(--win95-button-hover);
   text-decoration: none;
+}
+
+.Project-link:active {
+  /* Pressed button effect */
+  border-top-color: var(--win95-shadow-dark);
+  border-left-color: var(--win95-shadow-dark);
+  border-right-color: var(--win95-highlight);
+  border-bottom-color: var(--win95-highlight);
+  box-shadow:
+    inset 1px 1px 0 var(--win95-shadow),
+    inset -1px -1px 0 var(--win95-gray-light);
+  padding: 5px 7px 3px 9px;
+}
+
+.Project-link:focus {
+  outline: 1px dotted var(--win95-text);
+  outline-offset: -4px;
 }

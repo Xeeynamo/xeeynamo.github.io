@@ -1,32 +1,94 @@
+/* Windows 95 Window-Style Header */
+
 .Header {
-  margin-top: 4em;
-  margin-bottom: 4em;
-  padding: 2em;
-  text-align: center;
-  background-color: #faf8f6;
-  border-top: 1px solid #bbbab9;
-  border-bottom: 1px solid #bbbab9;
+  background: var(--win95-gray);
+  border: none;
+  padding: 0;
+  margin: 20px 0;
+
+  /* Window frame - outset bevel */
+  border-top: 2px solid var(--win95-highlight);
+  border-left: 2px solid var(--win95-highlight);
+  border-right: 2px solid var(--win95-shadow-dark);
+  border-bottom: 2px solid var(--win95-shadow-dark);
+  box-shadow:
+    inset 1px 1px 0 var(--win95-gray-light),
+    inset -1px -1px 0 var(--win95-shadow);
 }
 
-.Header>h1 {
-  font-size: xxx-large;
-  font-weight: normal;
+.Header > h1 {
+  /* Title bar styling */
+  background: linear-gradient(90deg, var(--win95-titlebar) 0%, var(--win95-titlebar-gradient) 100%);
+  color: var(--win95-titlebar-text);
+  padding: 3px 8px;
+  font-size: 13px;
+  font-weight: bold;
   margin: 0;
+  letter-spacing: 0;
+  text-align: left;
 }
 
-.Header>h2 {
+.Header > h2 {
+  background: var(--win95-gray);
+  padding: 20px 16px 12px 16px;
+  margin: 0;
+  font-size: 16px;
   font-weight: normal;
+  text-align: center;
+  color: var(--win95-text);
 }
 
 nav {
-  margin: 1.5em 0;
+  background: var(--win95-gray);
+  padding: 0 16px 16px 16px;
+  margin: 0;
+  text-align: center;
 }
 
-nav>a {
-  margin: 0 0.75em;
+nav > a {
+  /* Button-style navigation links */
+  display: inline-block;
+  background: var(--win95-button-face);
+  border: 2px solid;
+  border-top-color: var(--win95-highlight);
+  border-left-color: var(--win95-highlight);
+  border-right-color: var(--win95-shadow-dark);
+  border-bottom-color: var(--win95-shadow-dark);
+  padding: 4px 12px;
+  margin: 0 4px;
+  color: var(--win95-text);
+  text-decoration: none;
+  font-size: 11px;
+  box-shadow:
+    inset 1px 1px 0 var(--win95-gray-light),
+    inset -1px -1px 0 var(--win95-shadow);
+  cursor: pointer;
+  user-select: none;
 }
 
+nav > a:hover {
+  background: var(--win95-button-hover);
+  text-decoration: none;
+}
+
+nav > a:active {
+  /* Pressed button effect */
+  border-top-color: var(--win95-shadow-dark);
+  border-left-color: var(--win95-shadow-dark);
+  border-right-color: var(--win95-highlight);
+  border-bottom-color: var(--win95-highlight);
+  box-shadow:
+    inset 1px 1px 0 var(--win95-shadow),
+    inset -1px -1px 0 var(--win95-gray-light);
+  padding: 5px 11px 3px 13px;
+}
+
+nav > a:focus {
+  outline: 1px dotted var(--win95-text);
+  outline-offset: -4px;
+}
+
+/* Hide separator in Win95 style */
 .nav-separator {
-  color: #bbbab9;
-  margin: 0 0.25em;
+  display: none;
 }

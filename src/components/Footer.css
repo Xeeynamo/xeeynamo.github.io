@@ -1,3 +1,37 @@
+/* Windows 95 Status Bar Footer */
+
 .Footer {
-  padding-top: 1vw;
+  background: var(--win95-gray);
+  border-top: 2px solid var(--win95-highlight);
+  padding: 0;
+  margin-top: 20px;
+  font-size: 11px;
+}
+
+.Footer hr {
+  display: none;
+}
+
+.FooterContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: var(--win95-gray);
+  padding: 8px 12px;
+  margin: 0;
+  line-height: 1.6;
+  color: var(--win95-text);
+}
+
+.FooterContent::before {
+  /* Status bar icon/indicator */
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: var(--win95-gray-dark);
+  border: 1px solid var(--win95-shadow-dark);
+  margin-right: 8px;
+  margin-bottom: 4px;
+  flex-shrink: 0;
 }

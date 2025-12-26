@@ -1,41 +1,70 @@
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #bbbab9;
-  margin: 1em 0;
-  padding: 0;
-}
+/* Windows 95 Global Layout Styles */
 
-a {
-  text-decoration: none;
-  color: #0867fd;
-}
-
-a:hover {
-  text-decoration: underline;
+.App {
+  min-height: 100vh;
+  background: var(--win95-teal);
+  padding: 20px 0;
 }
 
 .AppContent {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  max-width: 18cm;
-  padding-left: 4vw;
-  padding-right: 4vw;
+  max-width: 800px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
+/* Horizontal Rule - Beveled Style */
+hr {
+  display: block;
+  height: 2px;
+  border: 0;
+  border-top: 1px solid var(--win95-shadow);
+  border-bottom: 1px solid var(--win95-highlight);
+  margin: 16px 0;
+  padding: 0;
+  background: transparent;
+}
+
+/* Classic Windows 95 Link Colors */
+a {
+  color: var(--win95-link);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+a:visited {
+  color: var(--win95-link-visited);
+}
+
+a:hover {
+  color: var(--win95-link-hover);
+  text-decoration: underline;
+}
+
+a:active {
+  color: var(--win95-link);
+}
+
+/* Remove all border-radius globally */
+* {
+  border-radius: 0 !important;
+}
+
+/* Footer positioning */
 .Footer {
-  margin-left: 4vw;
-  padding-right: 4vw;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .FooterContent {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 18cm;
-  padding-left: 4vw;
-  padding-right: 4vw;
-  padding-bottom: 1em;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 4px 8px;
+  max-width: none;
 }
